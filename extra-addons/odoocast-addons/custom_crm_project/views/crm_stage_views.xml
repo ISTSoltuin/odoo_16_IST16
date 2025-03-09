@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="view_crm_stage_form_inherit" model="ir.ui.view">
+        <field name="name">view.crm.stage.form (in custom_crm_project)</field>
+        <field name="model">crm.stage</field>
+        <field name="inherit_id" ref="crm.crm_stage_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='requirements']" position="after">
+                <group name="project_mgmt" string="Project Management">
+                    <group>
+                        <label for="generate_project" colspan="2"/>
+                        <field name="generate_project" nolabel="1"/>
+                    </group>
+                    <group>
+                        <label for="auto_generate_basic_tasks" colspan="4"/>
+                        <field name="auto_generate_basic_tasks" nolabel="1"/>
+                    </group>
+                    <group>
+                        <label for="privacy_visibility" colspan="4"/>
+                        <field name="privacy_visibility" widget="radio" colspan="4" nolabel="1"/>
+                    </group>
+                    <group>
+                        <label for="allow_milestone" colspan="4"/>
+                        <field name="allow_milestone" nolabel="1"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

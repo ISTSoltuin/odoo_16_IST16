@@ -1,0 +1,31 @@
+astor
+dataclasses
+mako
+odoorpc
+openpyxl
+openupgradelib
+sentry_sdk<=1.9.0
+pyrfc6266
+bokeh==3.1.1
+plotly==5.13.1
+lxml
+xlrd
+qifparse
+xlsxwriter
+python-dateutil
+unidecode
+brazilcep
+email_validator
+erpbrasil.base
+num2words
+phonenumbers
+workalendar
+odoo_test_helper
+sqlparse
+deep_translator
+mtranslate
+# sinesp-client
+# signxml
+# pytrustnfe3
+# pysigep
+# iugu-trustcode

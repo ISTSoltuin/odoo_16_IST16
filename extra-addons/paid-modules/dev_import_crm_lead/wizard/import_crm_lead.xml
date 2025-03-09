@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!--View-->
+    <record id="import_lead_view" model="ir.ui.view">
+        <field name="name">import.lead.view</field>
+        <field name="model">import.lead</field>
+        <field name="arch" type="xml">
+            <form string="Import CRM Lead" version="7.0">
+            	<group>
+                	<field name="import_csv" />
+                </group>
+                <footer>
+                	<button class="oe_highlight" name="import_lead" string="Importar Contatos" type="object" />
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+	<!--Action-->
+    <record id="action_import_lead" model="ir.actions.act_window">
+        <field name="name">Importar Leads</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.lead</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="import_lead_view"/>
+        <field name="target">new</field>
+    </record>
+
+	<!--MenuItem-->
+    <menuitem name="Importar contatos via planilha" id="menu_import_lead" parent="crm.crm_menu_sales" sequence="4" action="action_import_lead"/> 
+</odoo>

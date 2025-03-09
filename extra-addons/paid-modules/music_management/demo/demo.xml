@@ -1,0 +1,242 @@
+<odoo>
+    <data>
+
+      <!-- Generos -->
+      <record id="genero1" model="music_management.genero">
+      <field name="name">101</field>
+        <field name="nombre">Rock</field>
+      </record>
+
+      <record id="genero2" model="music_management.genero">
+      <field name="name">102</field>
+        <field name="nombre">Metal</field>
+      </record>
+
+      <record id="genero3" model="music_management.genero">
+      <field name="name">103</field>
+        <field name="nombre">Banda Sonora</field>
+      </record>
+
+      <record id="genero4" model="music_management.genero">
+      <field name="name">104</field>
+        <field name="nombre">Pop</field>
+      </record>
+      <!-- Artistas -->
+        <record id="artista1" model="music_management.artista">
+        <field name="name">001</field>
+          <field name="nombre">Mago de oz</field>
+          <field name="descripcion">Banda de folk metal</field>
+          <field name="comision">0.01</field>
+          <field name="imagen" type="base64" file="music_management/static/img/mago.png"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+        <record id="artista2" model="music_management.artista">
+        <field name="name">002</field>
+          <field name="nombre">Sabaton</field>
+          <field name="descripcion">Banda de metal con ambientacion belica</field>
+          <field name="comision">0.03</field>
+          <field name="imagen" type="base64" file="music_management/static/img/sabaton.png"/>
+          <field name="genero_id" ref="genero2"/>
+        </record>
+        <record id="artista3" model="music_management.artista">
+        <field name="name">003</field>
+          <field name="nombre">Family Jules</field>
+          <field name="descripcion">Persona que realiza covers de videojuegos con la guitarra</field>
+          <field name="comision">0.02</field>
+          <field name="imagen" type="base64" file="music_management/static/img/jeremy.png"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+        <record id="artista4" model="music_management.artista">
+        <field name="name">004</field>
+          <field name="nombre">Jeremy Soule</field>
+          <field name="descripcion">Compositor de videojuegos conocido por crear la ost de Skyrim</field>
+          <field name="comision">0.04</field>
+          <field name="imagen" type="base64" file="music_management/static/img/family.png"/>
+          <field name="genero_id" ref="genero3"/>
+        </record>
+
+        <!-- Albums -->
+        <record id="album1" model="music_management.album">
+        <field name="name">010</field>
+          <field name="nombre">Finisterra</field>
+          <field name="año">07/10/2000</field>
+          <field name="artista_id" ref="artista1"/>
+          <field name="genero_id" ref="genero1"/>
+          <field name="imagen" type="base64" file="music_management/static/img/finisterra.png"/>
+        </record>
+        <record id="album2" model="music_management.album">
+        <field name="name">020</field>
+          <field name="nombre">Gaia II</field>
+          <field name="año">14/11/2005</field>
+          <field name="artista_id" ref="artista1"/>
+          <field name="genero_id" ref="genero1"/>
+          <field name="imagen" type="base64" file="music_management/static/img/gaia2.png"/>
+        </record>
+        <record id="album3" model="music_management.album">
+        <field name="name">030</field>
+          <field name="nombre">Primo Victoria</field>
+          <field name="año">04/03/2005</field>
+          <field name="artista_id" ref="artista2"/>
+          <field name="genero_id" ref="genero2"/>
+          <field name="imagen" type="base64" file="music_management/static/img/primo.png"/>
+        </record>
+        <record id="album4" model="music_management.album">
+        <field name="name">040</field>
+          <field name="nombre">The Elder Scroll V Skyrim</field>
+          <field name="año">11/11/2011</field>
+          <field name="artista_id" ref="artista4"/>
+          <field name="genero_id" ref="genero4"/>
+          <field name="imagen" type="base64" file="music_management/static/img/skyrim.png"/>
+        </record>
+        <record id="album5" model="music_management.album">
+        <field name="name">050</field>
+          <field name="nombre">The World Revolving</field>
+          <field name="año">11/12/2018</field>
+          <field name="artista_id" ref="artista3"/>
+          <field name="genero_id" ref="genero3"/>
+          <field name="imagen" type="base64" file="music_management/static/img/world.png"/>
+
+        </record>
+
+        <!-- Canciones -->
+        <record id="cancion1" model="music_management.cancion">
+        <field name="name">011</field>
+          <field name="nombre">Fiesta Pagana</field>
+          <field name="año">07/10/2000</field>
+          <field name="visitas">500000</field>
+          <field name="album_id" ref="album1"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+        <record id="cancion2" model="music_management.cancion">
+        <field name="name">012</field>
+          <field name="nombre">Satania</field>
+          <field name="año">07/10/2000</field>
+          <field name="visitas">100</field>
+          <field name="album_id" ref="album1"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+
+        <record id="cancion3" model="music_management.cancion">
+        <field name="name">013</field>
+          <field name="nombre">El señor de los gramillos</field>
+          <field name="año">07/10/2000</field>
+          <field name="visitas">100000</field>
+          <field name="album_id" ref="album1"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+
+        <record id="cancion4" model="music_management.cancion">
+        <field name="name">021</field>
+          <field name="nombre">La voz dormida</field>
+          <field name="año">14/11/2005</field>
+          <field name="visitas">10500</field>
+          <field name="album_id" ref="album2"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+
+        <record id="cancion5" model="music_management.cancion">
+        <field name="name">022</field>
+          <field name="nombre">Hazme un sitio entre tu piel</field>
+          <field name="año">14/11/2005</field>
+          <field name="visitas">10500</field>
+          <field name="album_id" ref="album2"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+
+        <record id="cancion6" model="music_management.cancion">
+        <field name="name">031</field>
+          <field name="nombre">Primo Victoria</field>
+          <field name="año">04/03/2005</field>
+          <field name="visitas">50000</field>
+          <field name="album_id" ref="album3"/>
+          <field name="genero_id" ref="genero2"/>
+        </record>
+
+        <record id="cancion7" model="music_management.cancion">
+        <field name="name">032</field>
+          <field name="nombre">Stalingrad</field>
+          <field name="año">04/03/2005</field>
+          <field name="visitas">10000</field>
+          <field name="album_id" ref="album3"/>
+          <field name="genero_id" ref="genero2"/>
+        </record>
+
+        <record id="cancion8" model="music_management.cancion">
+        <field name="name">033</field>
+          <field name="nombre">Reign of Terror</field>
+          <field name="año">04/03/2005</field>
+          <field name="visitas">10000</field>
+          <field name="album_id" ref="album3"/>
+          <field name="genero_id" ref="genero2"/>
+        </record>
+
+        <record id="cancion9" model="music_management.cancion">
+        <field name="name">041</field>
+          <field name="nombre">Dragonborn</field>
+          <field name="año">11/11/2011</field>
+          <field name="visitas">10012</field>
+          <field name="album_id" ref="album4"/>
+          <field name="genero_id" ref="genero3"/>
+        </record>
+
+        <record id="cancion10" model="music_management.cancion">
+        <field name="name">041</field>
+          <field name="nombre">Awake</field>
+          <field name="año">11/11/2011</field>
+          <field name="visitas">1004</field>
+          <field name="album_id" ref="album4"/>
+          <field name="genero_id" ref="genero3"/>
+        </record>
+
+        <record id="cancion11" model="music_management.cancion">
+        <field name="name">041</field>
+          <field name="nombre">From past to Present</field>
+          <field name="año">11/11/2011</field>
+          <field name="visitas">100102</field>
+          <field name="album_id" ref="album4"/>
+          <field name="genero_id" ref="genero3"/>
+        </record>
+
+        <record id="cancion12" model="music_management.cancion">
+        <field name="name">051</field>
+          <field name="nombre">The World is Revolving</field>
+          <field name="año">11/12/2018</field>
+          <field name="visitas">10000</field>
+          <field name="album_id" ref="album5"/>
+          <field name="genero_id" ref="genero1"/>
+        </record>
+
+        <!-- Usuarios -->
+        <record id="usuario1" model="music_management.usuario">
+        <field name="name">1000</field>
+          <field name="nombre">Sergio Losantos</field>
+          <field name="año">Premium+</field>
+          <field name="generoMasEscuchado" ref="genero3"/>
+        </record>
+
+        <record id="usuario2" model="music_management.usuario">
+        <field name="name">2000</field>
+          <field name="nombre">Pepito Losantos</field>
+          <field name="año">Premium+</field>
+          <field name="generoMasEscuchado" ref="genero3"/>
+        </record>
+        <record id="usuario3" model="music_management.usuario">
+        <field name="name">3000</field>
+          <field name="nombre">Iñigo Carrero</field>
+          <field name="año">Premium</field>
+          <field name="generoMasEscuchado" ref="genero2"/>
+        </record>
+        <record id="usuario4" model="music_management.usuario">
+        <field name="name">4000</field>
+          <field name="nombre">Alberto Perez</field>
+          <field name="año">Gratuita</field>
+          <field name="generoMasEscuchado" ref="genero1"/>
+        </record>
+        <record id="usuario5" model="music_management.usuario">
+        <field name="name">5000</field>
+          <field name="nombre">Cristobal Colon</field>
+          <field name="año">Premium+</field>
+          <field name="generoMasEscuchado" ref="genero4"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<!-- token_generator/views/fake_token_view.xml -->
+
+<odoo>
+    <record id="view_form_token_generator" model="ir.ui.view">
+        <field name="name">token.generator.form</field>
+        <field name="model">token.generator</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="token_count"/>
+                    </group>
+                    <footer>
+                        <button name="generate_tokens" string="Generate Tokens" type="object" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_token_generator" model="ir.actions.act_window">
+        <field name="name">Token Generator</field>
+        <field name="res_model">token.generator</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_form_token_generator"/>
+    </record>
+
+    <menuitem id="menu_token_generator" name="Token Generator" action="action_token_generator"/>
+</odoo>

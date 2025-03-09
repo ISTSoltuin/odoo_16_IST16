@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="music_management_menu"
+        name="Music Management"
+        sequence="01"/>
+
+</odoo>

@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_social_media_post_tree" model="ir.ui.view">
+        <field name="name">social.media.post.tree</field>
+        <field name="model">social.media.post</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="account_id"/>
+                <field name="scheduled_date"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_social_media_post_form" model="ir.ui.view">
+        <field name="name">social.media.post.form</field>
+        <field name="model">social.media.post</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="account_id"/>
+                        <field name="content"/>
+                        <field name="image"/>
+                        <field name="video"/>
+                        <field name="scheduled_date"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_social_media_post" model="ir.actions.act_window">
+        <field name="name">Social Media Posts</field>
+        <field name="res_model">social.media.post</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_social_media_posts" name="Social Media Posts" parent="menu_social_media_scheduler" action="action_social_media_post"/>
+</odoo>

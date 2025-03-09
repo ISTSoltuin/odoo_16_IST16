@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_po_file_translator_form">
+            <field name="name">po.file.translator.form</field>
+            <field name="model">po.file.translator</field>
+            <field name="arch" type="xml">
+                <form string="Translate PO File">
+                    <field name="state" invisible="1"/>
+                    <field name="filename" invisible="1"/>
+                    <group states="upload" string="Export Settings">
+                        <field name="source_lang"/>
+                        <field name="target_lang"/>
+                        <field name="data" filename="filename"/>
+                        <field name="overwrite" widget="boolean_toggle"/>
+                    </group>
+                    <div states="download">
+                        <h2>Translation Complete</h2>
+                        <p>Here is the exported translation file:
+                            <field name="new_data" readonly="1" filename="filename"/></p>
+                        <p>This file was generated using the universal <strong>Unicode/UTF-8</strong> file encoding.
+                            Please be sure to view and edit using the same encoding.</p>
+                            <ul>
+                            <li>PO(T) format: you should edit it with a PO editor such as
+                                <a href="http://www.poedit.net/" target="_blank">POEdit</a>, or your preferred text editor</li>
+                            </ul>
+                    </div>
+                    <footer states="upload">
+                        <button name="action_translate_po_file" string="Translate" type="object" class="btn-primary"
+                                data-hotkey="q"/>
+                        <button special="cancel" data-hotkey="z" string="Cancel" type="object" class="btn-secondary"/>
+                    </footer>
+                    <footer states="download">
+                        <button special="cancel" data-hotkey="z" string="Close" type="object" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_po_file_translator" model="ir.actions.act_window">
+            <field name="name">Translate PO File</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">po.file.translator</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Translate PO File" id="menu_po_file_translator" action="action_po_file_translator"
+                  parent="base.menu_translation" sequence="100"/>
+
+    </data>
+</odoo>

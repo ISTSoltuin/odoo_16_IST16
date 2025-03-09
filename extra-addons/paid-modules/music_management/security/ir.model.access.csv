@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_music_management_artista_manager,music_management_music_artista,model_music_artista,base.group_user,1,1,1,1
+access_music_management_selo_manager,music_management_music_selo,model_music_selo,base.group_user,1,1,1,1
+access_music_management_genero_musical_manager,music_management_genero_musical,model_genero_musical,base.group_user,1,1,1,1

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View fandi.webhook.call View Tree -->
+    <record id="view_fandi_webhook_call_tree" model="ir.ui.view">
+        <field name="name">view.fandi.webhook.call.tree</field>
+        <field name="model">fandi.webhook.call</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="url_fandi" />
+                <field name="token_acesso" />
+                <field name="api_environment" />
+                <field name="point_of_sale_id" />
+                <field name="company_id" />
+                <field name="fandi_company_id" />
+                <field name="seller_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- View fandi.webhook.call form -->
+    <record id="view_fandi_webhook_call_form" model="ir.ui.view">
+        <field name="name">view.fandi.webhook.call.form</field>
+        <field name="model">fandi.webhook.call</field>
+        <field name="arch" type="xml">
+            <form string="Fandi Webhook Call">
+                <sheet>
+                    <field name="name" placeholder="Name..." />
+                    <group>
+                        <group string="Entidades Relacionadas">
+                            <field name="fandi_config_id" />
+                            <field name="fandi_client_id" />
+                            <field name="fandi_webhook_simulation_id" />
+                            <field name="company_id" />
+                            <field name="fandi_company_id" />
+                        </group>
+                        <group string="Parâmetros de ambiente">
+                            <field name="url_fandi" />
+                            <field name="token_acesso" />
+                            <field name="api_environment" />
+                            <field name="point_of_sale_id" />
+                            <field name="seller_id" />
+                        </group>
+                        <separator string="Logs de Integração"/>
+                        <label for="json_body"/>
+                        <field name="json_body" nolabel="1" readonly="1"/>
+                        <label for="json_response"/>
+                        <field name="json_response" nolabel="1" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View fandi.webhook.call search -->
+    <record id="view_fandi_webhook_call_search" model="ir.ui.view">
+        <field name="name">view.fandi.webhook.call.search</field>
+        <field name="model">fandi.webhook.call</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action fandi.webhook.call -->
+    <record id="action_fandi_webhook_call" model="ir.actions.act_window">
+        <field name="name">Fandi Webhook Call</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fandi.webhook.call</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Fandi Webhook Call.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="fandi_api_app"
+        name="Fandi API"
+        sequence="10"/>
+    
+    <menuitem
+        id="fandi_api_menu"
+        name="Chamadas API"
+        parent="fandi_api_app"
+        sequence="10"/>
+    
+    <menuitem
+        id="fandi_api_call"
+        name="Registros"
+        action="action_fandi_webhook_call"
+        parent="fandi_api_menu"
+        sequence="10"/>
+
+</odoo>

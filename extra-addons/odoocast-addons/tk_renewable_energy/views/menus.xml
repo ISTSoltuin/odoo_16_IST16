@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="main_menu_renewable_energy" name="Renewable Energy"/>
+
+    <!-- <menuitem id="menu_renewable_energy_dashboard"
+              name="Dashboard"
+              sequence="99"
+              action="action_renewable_energy_dashboard"
+              parent="main_menu_renewable_energy"/> -->
+
+    <menuitem id="menu_ren_lead"
+              name="Leads"
+              parent="main_menu_renewable_energy"
+              action="action_ren_lead"
+              sequence="0"/>
+    <menuitem id="menu_customer"
+              name="Customers"
+              parent="main_menu_renewable_energy"
+              action="account.res_partner_action_customer"
+              sequence="1"/>
+    <menuitem id="menu_renewable_energy_order"
+              name="REN Orders"
+              parent="main_menu_renewable_energy"
+              action="action_renewable_energy_order"
+              sequence="3"/>
+
+    <menuitem id="menu_sales" name="Sales" parent="main_menu_renewable_energy" sequence="4"/>
+    <menuitem id="menu_order_quotations"
+              name="Quotations"
+              parent="menu_sales"
+              action="sale.action_quotations_with_onboarding"
+              sequence="1"/>
+    <menuitem id="menu_sale_order"
+              name="Orders"
+              parent="menu_sales"
+              action="sale.action_orders"
+              sequence="2"/>
+
+    <menuitem id="menu_manufacturing" name="Manufacturing" parent="main_menu_renewable_energy" sequence="5"/>
+    <menuitem id="menu_bill_of_material"
+              name="Bill of Materials"
+              parent="menu_manufacturing"
+              action="mrp.mrp_bom_form_action"
+              sequence="1"/>
+    <menuitem id="menu_mrp_production"
+              name="Manufacturing Orders"
+              parent="menu_manufacturing"
+              action="mrp.mrp_production_action"
+              sequence="2"/>
+
+    <menuitem id="menu_teams" name="Teams" parent="main_menu_renewable_energy" sequence="6"/>
+    <menuitem id="menu_survey_team"
+              name="Survey Teams"
+              parent="menu_teams"
+              action="action_survey_team"
+              sequence="1"/>
+    <menuitem id="menu_installation_team"
+              name="Installation Teams"
+              parent="menu_teams"
+              action="action_installation_team"
+              sequence="2"/>
+    <menuitem id="menu_qa_team"
+              name="QA Teams"
+              parent="menu_teams"
+              action="action_qa_team"
+              sequence="3"/>
+
+    <menuitem id="menu_configuration" name="Configurations" parent="main_menu_renewable_energy" sequence="7"/>
+    <menuitem id="menu_warranty_template"
+              name="Warranty Template"
+              parent="menu_configuration"
+              action="action_warranty_template"
+              sequence="1"/>
+</odoo>

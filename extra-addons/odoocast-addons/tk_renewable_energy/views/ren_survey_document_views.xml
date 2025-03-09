@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ren_survey_document_tree_view" model="ir.ui.view">
+        <field name="name">ren.survey.document.tree.view</field>
+        <field name="model">ren.survey.document</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="title"/>
+                <field name="file_name" invisible="1"/>
+                <field name="avatar" filename="file_name" widget="binary"/>
+            </tree>
+        </field>
+    </record>
+    <record id="ren_survey_document_search_view" model="ir.ui.view">
+        <field name="name">ren.survey.document.search.view</field>
+        <field name="model">ren.survey.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <group string="Group By">
+                    <filter name="title" string="Title"
+                            context="{'group_by':'title'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_ren_survey_document" model="ir.actions.act_window">
+        <field name="name">REN Survey Document</field>
+        <field name="res_model">ren.survey.document</field>
+        <field name="view_mode">tree,search</field>
+    </record>
+</odoo>

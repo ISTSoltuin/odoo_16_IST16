@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- extra-addons/paid-modules/crm_centraliza_ext/views/crm_team_form_inherited.xml -->
+    <record id="crm_team_form_inherited" model="ir.ui.view">
+        <field name="name">crm.team.form.inherited</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//sheet/group[1]" position="before">
+                    <group>
+                        <field name="is_funnel_group"/>
+                        <field name="funnel_groups" widget="many2many_tags" attrs="{'invisible': [('is_funnel_group', '=', False)]}"/>
+                    </group>
+                </xpath>
+                <xpath expr="//group[@name='left']" position="inside">
+                    <!-- Mantenha os outros campos existentes aqui -->
+                    <field name="is_membership_multi" invisible="1"/>
+                    <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
+                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="member_company_ids" invisible="1"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+
+</odoo>

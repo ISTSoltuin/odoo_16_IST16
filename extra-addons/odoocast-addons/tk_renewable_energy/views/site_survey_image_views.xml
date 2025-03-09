@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="site_survey_image_form_view" model="ir.ui.view">
+        <field name="name">site.survey.image.form.view</field>
+        <field name="model">site.survey.image</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="title"/>
+                        <h1>
+                            <field name="title" placeholder="e.g. Survey...."/>
+                        </h1>
+                    </div>
+                    <group string="Survey Image">
+                        <field name="avatar" widget="image" style="width:75%;" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="site_survey_image_tree_view" model="ir.ui.view">
+        <field name="name">site.survey.image.tree.view</field>
+        <field name="model">site.survey.image</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+            </tree>
+        </field>
+    </record>
+    <record id="site_survey_image_kanban_view" model="ir.ui.view">
+        <field name="name">site.survey.image.kanban.view</field>
+        <field name="model">site.survey.image</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_partner_kanban">
+                <field name="id"/>
+                <field name="title"/>
+                <field name="avatar"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click" style="height:auto;background-color:#6CC1ED,color:#006600">
+                            <div class="">
+                                <img alt="Avatar" width="250px" height="250px"
+                                     t-att-src="kanban_image('site.survey.image', 'avatar',record.id.raw_value)"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="title"/>
+                                </strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="site_survey_image_search_view" model="ir.ui.view">
+        <field name="name">site.survey.image.search.view</field>
+        <field name="model">site.survey.image</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <group string="Group By">
+                    <filter name="title" string="Title"
+                            context="{'group_by': 'title'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_site_survey_image" model="ir.actions.act_window">
+        <field name="name">Site Survey Image</field>
+        <field name="res_model">site.survey.image</field>
+        <field name="view_mode">kanban,tree,form,search</field>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <template id="assets_backend" name="fleet_vehicle_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/my_fleet_extension/static/src/js/fleet_vehicle.js"></script>
+        </xpath>
+    </template>
+</odoo>

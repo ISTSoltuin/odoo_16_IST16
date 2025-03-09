@@ -1,0 +1,75 @@
+<odoo>
+    <!-- Action -->
+    <record id="action_evolution_message" model="ir.actions.act_window">
+        <field name="name">Evolution Messages</field>
+        <field name="res_model">evolution.message</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="context">{'search_default_group_by_partner': 1, 'show_invisible': True}</field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_evolution_message_kanban" model="ir.ui.view">
+        <field name="name">evolution.message.kanban</field>
+        <field name="model">evolution.message</field>
+        <field name="arch" type="xml">
+            <kanban class="o_evolution_kanban_view">
+                <field name="message_id"/>
+                <field name="content"/>
+                <field name="sender"/>
+                <field name="phone_number"/>
+                <field name="timestamp"/>
+                
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record">
+                            <div class="o_kanban_image">
+                                <t t-esc="record.sender.value"/>
+                            </div>
+                            <div class="o_kanban_details">
+                                <strong>
+                                    <t t-esc="record.sender.value"/>
+                                </strong>
+                                <div class="o_kanban_body">
+                                    <t t-esc="record.content.value"/>
+                                </div>
+                                <div class="oe_kanban_footer">
+                                    <span><t t-esc="record.timestamp.value"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_evolution_message_form" model="ir.ui.view">
+        <field name="name">evolution.message.form</field>
+        <field name="model">evolution.message</field>
+        <field name="arch" type="xml">
+            <form string="Evolution Message">
+                <header>
+                    <button name="send_message" type="object" string="Send Message" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="message_id" readonly="1"/>
+                        <field name="content"/>
+                        <field name="sender"/>
+                        <field name="phone_number"/>
+                        <field name="timestamp" readonly="1"/>
+                    </group>
+                    <footer>
+                        <field name="content" placeholder="Type your message here..."/>
+                        <button name="send_message" type="object" string="Send" class="oe_highlight"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_evolution_root" name="Evolution" sequence="1"/>
+    <menuitem id="menu_evolution_message" name="Messages" parent="menu_evolution_root" action="action_evolution_message" sequence="1"/>
+</odoo>

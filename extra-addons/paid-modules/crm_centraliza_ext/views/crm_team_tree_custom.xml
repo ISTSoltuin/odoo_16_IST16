@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crm_team_tree_custom" model="ir.ui.view">
+        <field name="name">crm.team.tree.custom</field>
+        <field name="model">crm.team</field>
+        <field name="arch" type="xml">
+            <tree string="Pipelines" multi_edit="1">
+                <!-- Adicione os campos conforme necessário -->
+                <field name="sequence" widget="handle"/>
+                <field name="name" readonly="1"/>
+                <field name="active" invisible="1"/>
+                <field name="user_id" domain="[('share', '=', False)]" widget="many2one_avatar_user"/>
+                <field name="company_id" groups="base.group_multi_company"/> 
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_team_view_tree_custom" model="ir.ui.view">
+        <field name="name">crm.team.view.tree.custom</field>
+        <field name="model">crm.team</field>
+        <field name="inherit_id" ref="sales_team.crm_team_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="string">Pipelines</attribute>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="sequence" widget="handle"/>
+                <field name="name" readonly="1"/>
+                <field name="active" invisible="1"/>
+                <field name="user_id" domain="[('share', '=', False)]" widget="many2one_avatar_user"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

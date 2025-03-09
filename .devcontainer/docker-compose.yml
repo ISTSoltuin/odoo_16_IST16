@@ -1,0 +1,58 @@
+version: '3.4'
+
+networks:
+  odoocast-16-net:
+
+volumes:
+  odoocast-16-db-postgresql:
+  odoocast-16-db-pgadmin4:
+  odoocast-16-filestore:
+
+services:
+  app:
+    build: 
+      context: ../.
+      dockerfile: Dockerfile-dev
+    volumes:
+      - odoocast-16-filestore:/var/lib/odoo
+      - ../.devcontainer://usr/lib/python3/dist-packages/odoo/.devcontainer
+      - ../.vscode://usr/lib/python3/dist-packages/odoo/.vscode
+      - ../odoo://usr/lib/python3/dist-packages/odoo
+      - ../data-dir://usr/lib/python3/dist-packages/odoo/data-dir
+      - ../extra-addons://usr/lib/python3/dist-packages/odoo/extra-addons
+      - ../odoo4devs.conf://usr/lib/python3/dist-packages/odoo/odoo4devs.conf
+    networks:
+      - odoocast-16-net
+    depends_on:
+      - db
+    ports:
+      - 8069:8069
+      - 8072:8072
+    tty: true
+    command: ["/bin/bash"]
+
+  db:
+    user: root
+    image: postgres:15
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+    volumes:
+      - odoocast-16-db-postgresql:/var/lib/postgresql/data
+    networks:
+      - odoocast-16-net
+  pgadmin-odoo-16:
+    user: root
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@odoocast.com.br
+      PGADMIN_DEFAULT_PASSWORD: odoocast@2023
+    ports:
+      - "8080:80"
+    networks:
+      - odoocast-16-net
+    volumes:
+      - odoocast-16-db-pgadmin4:/var/lib/pgadmin4/data
+    depends_on:
+      - db

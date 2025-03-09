@@ -1,0 +1,6 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_fandi_webhook_call_manager,fandi_webhook_call_manager,model_fandi_webhook_call,,1,1,1,1
+access_fandi_webhook_config_manager,fandi_webhook_config_manager,model_fandi_webhook_config,,1,1,1,1
+access_fandi_webhook_client_manager,fandi_webhook_client_manager,model_fandi_webhook_client,,1,1,1,1
+access_fandi_webhook_simulation_manager,fandi_webhook_simulation_manager,model_fandi_webhook_simulation,,1,1,1,1
+access_fandi_webhook_mixin_manager,fandi_webhook_mixin_manager,model_fandi_webhook_mixin,,1,1,1,1

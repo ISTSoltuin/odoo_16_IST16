@@ -1,0 +1,2270 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_website_helpdesk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-23 21:59+0000\n"
+"PO-Revision-Date: 2024-01-23 21:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_group_by_table
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_table
+msgid "&amp;nbsp;"
+msgstr ""
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.portal_my_home_menu_tickets
+msgid "/ Helpdesk Tickets"
+msgstr "/ Tickets de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid ""
+"<b>Write Review\n"
+"                    </b>"
+msgstr ""
+"<b>Escrever comentário\n"
+"                    </b>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.helpdesk_replay_email_template
+msgid ""
+"<div class=\"container\">\n"
+"                    <h4 style=\"text-align:center\">Helpdesk Replay</h4>\n"
+"                    <div style=\"min-height:30vh;\">\n"
+"                        message........\n"
+"                    </div>\n"
+"                    <h6><a t-attf-href=\"http://cybrosys:8050/@/my/tickets/{{object.id}}\" class=\"btn btn-primary\">View Ticket\n"
+"                    </a></h6>\n"
+"                        <table class=\"table table-light\" width=\"100%\">\n"
+"                            <tbody>\n"
+"                                <tr>\n"
+"                                    <th>Name</th>\n"
+"                                    <td>\n"
+"                                        <t t-if=\"object.assigned_user\">\n"
+"                                            <t t-esc=\"object.assigned_user.name\"></t>\n"
+"                                        </t>\n"
+"                                        <t t-else=\"\">\n"
+"                                            username\n"
+"                                        </t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <th>Team name</th>\n"
+"                                    <td>\n"
+"                                        <t t-if=\"object.team_id\">\n"
+"                                            <t t-esc=\"object.team_id.name\"></t>\n"
+"                                        </t>\n"
+"                                        <t t-else=\"\">\n"
+"                                            Team name\n"
+"                                        </t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <th>Replied On</th>\n"
+"                                    <td>\n"
+"                                        <t t-set=\"date\" t-value=\"(datetime.date.today())\"></t>\n"
+"                                        <t t-esc=\"date\"></t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </tbody>\n"
+"                        </table>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div class=\"container\">\n"
+"                    <h4 style=\"text-align:center\">Repetição do suporte técnico</h4>\n"
+"                    <div style=\"min-height:30vh;\">\n"
+"                        mensagem........\n"
+"                    </div>\n"
+"                    <h6><a t-attf-href=\"http://cybrosys:8050/@/my/tickets/{{object.id}}\" class=\"btn btn-primary\">Ver ingresso\n"
+"                    </a></h6>\n"
+"                        <table class=\"table table-light\" width=\"100%\">\n"
+"                            <corpo>\n"
+"                                <tr>\n"
+"                                    <th>Nome</th>\n"
+"                                    <td>\n"
+"                                        <t t-if=\"object.assigned_user\">\n"
+"                                            <t t-esc=\"object.assigned_user.name\"></t>\n"
+"                                        </t>\n"
+"                                        <t t-else=\"\">\n"
+"                                            nome de usuário\n"
+"                                        </t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <th>Nome da equipe</th>\n"
+"                                    <td>\n"
+"                                        <t t-if=\"object.team_id\">\n"
+"                                            <t t-esc=\"object.team_id.name\"></t>\n"
+"                                        </t>\n"
+"                                        <t t-else=\"\">\n"
+"                                            Nome do time\n"
+"                                        </t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                                <tr>\n"
+"                                    <th>Respondido em</th>\n"
+"                                    <td>\n"
+"                                        <t t-set=\"date\" t-value=\"(datetime.date.today())\"></t>\n"
+"                                        <t t-esc=\"data\"></t>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </tbody>\n"
+"                        </tabela>\n"
+"                </div>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.odoo_website_helpdesk_assign_user
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Dear,<t t-esc=\"object.assigned_user.name\"></t></p>\n"
+"                    <p> Ticket [<t t-esc=\"object.name\"></t>] Assign to you , kindly complete your work carefully.\n"
+"                    </p>\n"
+"                    <br>\n"
+"                    <h2>Details </h2>\n"
+"                    <p>Subject : <t t-esc=\"object.subject\"></t></p>\n"
+"                    <p>Customer : <t t-esc=\"object.customer_id.name\"></t></p>\n"
+"                    <p>Description : <t t-esc=\"object.description\"></t></p>\n"
+"                    <br>\n"
+"                    <p>Best regards</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Prezado,<t t-esc=\"object.assigned_user.name\"></t></p>\n"
+"                    <p> Ticket [<t t-esc=\"object.name\"></t>] Atribua a você, por favor, conclua seu trabalho com cuidado.\n"
+"                    </p>\n"
+"                    <br>\n"
+"                    <h2>Detalhes</h2>\n"
+"                    <p>Assunto: <t t-esc=\"object.subject\"></t></p>\n"
+"                    <p>Cliente: <t t-esc=\"object.customer_id.name\"></t></p>\n"
+"                    <p>Descrição: <t t-esc=\"object.description\"></t></p>\n"
+"                    <br>\n"
+"                    <p>Atenciosamente</p>\n"
+"                </div>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.odoo_website_helpdesk_to_customer
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Dear,<t t-esc=\"object.customer_id.name\"></t></p>\n"
+"                    <p> Ticket [<t t-esc=\"object.name\"></t>] successfully assigned to \"<t t-esc=\"object.assigned_user.name\"></t>\".\n"
+"                    </p>\n"
+"                    <br>\n"
+"                    <p>Best regards</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Olá,<t t-esc=\"object.customer_id.name\"></t></p>\n"
+"                    <p> Ticket [<t t-esc=\"object.name\"></t>] atribuído com sucesso a \"<t t-esc=\"object.assigned_user.name\"></t>\".\n"
+"                    </p>\n"
+"                    <br>\n"
+"                    <p>Atenciosamente</p>\n"
+"                </div>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.odoo_website_helpdesk_assign
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Dear,<t t-esc=\"object.team_head.name\"></t></p>\n"
+"                    <p> Your team has been given the ticket [<t t-esc=\"object.name\"></t>] kindly complete your work carefully.\n"
+"                    </p>\n"
+"                    <br>\n"
+"                    <h2>Details </h2>\n"
+"                    <p>Subject : <t t-esc=\"object.subject\"></t></p>\n"
+"                    <p>Customer : <t t-esc=\"object.customer_id.name\"></t></p>\n"
+"                    <p>Description : <t t-esc=\"object.description\"></t></p>\n"
+"                    <br>\n"
+"                    <p>Best regards</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Prezado,<t t-esc=\"object.team_head.name\"></t></p>\n"
+"                    <p> Sua equipe recebeu o ticket [<t t-esc=\"object.name\"></t>] por favor, conclua seu trabalho com cuidado.\n"
+"                    </p>\n"
+"                    <br>\n"
+"                    <h2>Detalhes</h2>\n"
+"                    <p>Assunto: <t t-esc=\"object.subject\"></t></p>\n"
+"                    <p>Cliente: <t t-esc=\"object.customer_id.name\"></t></p>\n"
+"                    <p>Descrição: <t t-esc=\"object.description\"></t></p>\n"
+"                    <br>\n"
+"                    <p>Atenciosamente</p>\n"
+"                </div>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+msgid ""
+"<i class=\"fa fa-1x fa-fw fa-envelope mr-2\"/>\n"
+"                                                <span>\n"
+"                                                    info@yourcompany.example.com\n"
+"                                                </span>"
+msgstr ""
+"<i class=\"fa fa-1x fa-fw fa-envelope mr-2\"/>\n"
+"                                                <span>\n"
+"                                                    info@suaempresa.exemplo.com\n"
+"                                                </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_thanks
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<i class=\"fa fa-1x fa-fw fa-envelope mr-2\"/>\n"
+"                                        <span>\n"
+"                                            info@yourcompany.example.com\n"
+"                                        </span>"
+msgstr ""
+"<i class=\"fa fa-1x fa-fw fa-envelope mr-2\"/>\n"
+"                                        <span>\n"
+"                                            info@suaempresa.exemplo.com\n"
+"                                        </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+msgid ""
+"<i class=\"fa fa-map-marker fa-fw mr-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">3575\n"
+"                                                    Demo Buena Vista Avenue\n"
+"                                                </span>"
+msgstr ""
+"<i class=\"fa fa-map-marker fa-fw mr-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">3575\n"
+"                                                    Demonstração Avenida Buena Vista\n"
+"                                                </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_thanks
+msgid ""
+"<i class=\"fa fa-map-marker fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">3575\n"
+"                                            Demo Buena Vista Avenue\n"
+"                                        </span>"
+msgstr ""
+"<i class=\"fa fa-map-marker fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">3575\n"
+"                                            Demonstração Avenida Buena Vista\n"
+"                                        </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<i class=\"fa fa-map-marker fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">3575 Demo\n"
+"                                            Buena\n"
+"                                            Vista Avenue\n"
+"                                        </span>"
+msgstr ""
+"<i class=\"fa fa-map-marker fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">Demonstração 3575\n"
+"                                            Boa\n"
+"                                            Avenida Vista\n"
+"                                        </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+msgid ""
+"<i class=\"fa fa-phone fa-fw mr-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">+1\n"
+"                                                    (650) 555-0111\n"
+"                                                </span>"
+msgstr ""
+"<i class=\"fa fa-phone fa-fw mr-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">+1\n"
+"                                                    (650) 555-0111\n"
+"                                                </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_thanks
+msgid ""
+"<i class=\"fa fa-phone fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">+1\n"
+"                                            (650) 555-0111\n"
+"                                        </span>"
+msgstr ""
+"<i class=\"fa fa-phone fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">+1\n"
+"                                            (650) 555-0111\n"
+"                                        </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<i class=\"fa fa-phone fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">+1 (650)\n"
+"                                            555-0111\n"
+"                                        </span>"
+msgstr ""
+"<i class=\"fa fa-phone fa-fw mr-2\"/>\n"
+"                                        <span class=\"o_force_ltr\">+1 (650)\n"
+"                                            555-0111\n"
+"                                        </span>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.ticket_canceled
+msgid ""
+"<p>\n"
+"                    Dear\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    <br>\n"
+"                    Your Ticket\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    is Canceled Due to Some Reasons\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Thanks.\n"
+"                </p>\n"
+"\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    Querido\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    <br>\n"
+"                    Seu ingresso\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    foi cancelado devido a alguns motivos\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Obrigado.\n"
+"                </p>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.ticket_reopened
+msgid ""
+"<p>\n"
+"                    Dear\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    <br>\n"
+"                    Your Ticket\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    is Reopened\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Thanks.\n"
+"                </p>\n"
+"\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    Querido\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    <br>\n"
+"                    Seu ingresso\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    é reaberto\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Obrigado.\n"
+"                </p>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.ticket_approved
+msgid ""
+"<p>\n"
+"                    Dear\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    <br>\n"
+"                    i think your Problem is Solved.\n"
+"                    Your Ticket\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    is Done\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Thanks.\n"
+"                </p>\n"
+"\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    Querido\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    <br>\n"
+"                    acho que seu problema está resolvido.\n"
+"                    Seu ingresso\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    é feito\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Obrigado.\n"
+"                </p>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.helpdesk_rating
+msgid ""
+"<p>\n"
+"                    Dear\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    Your Ticket\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    Is Closed\n"
+"                    <br>\n"
+"\n"
+"                    <button class=\"btn btn-info\" role=\"button\" style=\"border:1px solid black;background-color:purple;padding-x:20px;padding-y:15px;border-radius:10px; width:120px;\">\n"
+"                        <a t-attf-href=\"/rating/{{object.id}}\" style=\"text-decoration:none;color:white;font-weight:bold;font-size:18px;\">\n"
+"                            Rate Now\n"
+"                        </a>\n"
+"                    </button>\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Thanks.\n"
+"                </p>\n"
+"\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    Querido\n"
+"                    <t t-out=\"object.customer_id.name\"></t>\n"
+"                    Seu ingresso\n"
+"                    <t t-out=\"object.name\"></t>\n"
+"                    Está fechado\n"
+"                    <br>\n"
+"\n"
+"                    <button class=\"btn btn-info\" role=\"button\" style=\"border:1px preto sólido;cor de fundo:roxo;padding-x:20px;padding-y:15px;border-radius:10px; largura: 120 pixels;\">\n"
+"                        <a t-attf-href=\"/rating/{{object.id}}\" style=\"text-decoration:none;color:white;font-weight:bold;font-size:18px;\">\n"
+"                            Avalie agora\n"
+"                        </a>\n"
+"                    </button>\n"
+"                    <br>\n"
+"                    <br>\n"
+"                    Obrigado.\n"
+"                </p>"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,body_html:odoo_website_helpdesk.ticket_created
+msgid ""
+"<p>\n"
+"                  Dear <t t-out=\"object.customer_id.name\"></t>\n"
+"                  <br>\n"
+"                  Your Ticket  <t t-out=\"object.name\"></t> is Created and Assigned.Kindly Wait while we're resolving your Query\n"
+"                  <br>\n"
+"                  <br>\n"
+"                  Thanks.\n"
+"            </p>\n"
+"\n"
+"          "
+msgstr ""
+"<p>\n"
+"                  Prezado, <t t-out=\"object.customer_id.name\"></t>\n"
+"                  <br>\n"
+"                  Seu ticket <t t-out=\"object.name\"></t> foi criado e atribuído. Aguarde enquanto resolvemos sua consulta\n"
+"                  <br>\n"
+"                  <br>\n"
+"                  Obrigado.\n"
+"            </p>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_website_inherit
+msgid ""
+"<select id=\"group_select\" class=\"btn btn-secondary\">\n"
+"                <option value=\"0\" style=\"color:gray;\">Group by</option>\n"
+"                <option value=\"1\">Stage</option>\n"
+"                <option value=\"2\">Ticket type</option>\n"
+"            </select>"
+msgstr ""
+"<select id=\"group_select\" class=\"btn btn-secondary\">\n"
+"                <option value=\"0\" style=\"color:gray;\">Agrupar por</option>\n"
+"                <option value=\"1\">Estágio</option>\n"
+"                <option value=\"2\">Tipo de ingresso</option>\n"
+"            </selecionar>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<select id=\"product\" name=\"product\" multiple=\"multiple\">\n"
+"                                                                <option value=\"0\" selected=\"true\">\n"
+"                                                                    Choose\n"
+"                                                                    Products\n"
+"                                                                </option>\n"
+"                                                            </select>"
+msgstr ""
+"<select id=\"produto\" nome=\"produto\" múltiplo=\"múltiplo\">\n"
+"                                                                <option value=\"0\" selecionado=\"true\">\n"
+"                                                                    Escolher\n"
+"                                                                    Produtos\n"
+"                                                                </opção>\n"
+"                                                            </selecionar>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_group_by_table
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_table
+msgid "<span class=\"d-none d-md-inline\">Ticket #</span>"
+msgstr "<span class=\"d-none d-md-inline\">Ticket #</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "<span class=\"o_stat_text\">Merged Tickets</span>"
+msgstr "<span class=\"o_stat_text\">Tíquetes mesclados</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Attachment\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Attachment\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Category\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Category\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Company\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Company\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Description\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Description\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Email\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Email\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Email To\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Email To\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Name\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Name\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Phone\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Phone\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Products\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Products\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Subject\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Subject\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Ticket type\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                Ticket type\n"
+"                                                            </span>\n"
+"                                                            <span class=\"s_website_form_mark\">\n"
+"                                                                *\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid ""
+"<span>\n"
+"                                                                    1\n"
+"                                                                </span>"
+msgstr ""
+"<span>\n"
+"                                                                    1\n"
+"                                                                </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid ""
+"<span>\n"
+"                                                                2\n"
+"                                                            </span>"
+msgstr ""
+"<span>\n"
+"                                                                2\n"
+"                                                            </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid ""
+"<span>\n"
+"                                                            3\n"
+"                                                        </span>"
+msgstr ""
+"<span>\n"
+"                                                            3\n"
+"                                                        </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid ""
+"<span>\n"
+"                                                        4\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        4\n"
+"                                                    </span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Analytic Account</span>"
+msgstr "<span>Conta analítica</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Assigned to</span>"
+msgstr "<span>Atribuído a</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Customer :</span>"
+msgstr "<span>Cliente:</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Description :</span>"
+msgstr "<span>Descrição:</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Priority :</span>"
+msgstr "<span>Prioridade:</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Products :</span>"
+msgstr "<span>Produtos:</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Task Name</span>"
+msgstr "<span>Nome da tarefa</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<span>Total Hours Spend</span>"
+msgstr "<span>Total de horas gastas</span>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.portal_ticket_details
+msgid ""
+"<strong class=\"text-muted\">Your Contact\n"
+"                                    </strong>"
+msgstr ""
+"<strong class=\"text-muted\">Seu contato\n"
+"                                    </strong>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.report_helpdesk_ticket
+msgid "<strong>Tasks</strong>"
+msgstr "<strong>Tarefas</strong>"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_needaction
+msgid "Action Needed"
+msgstr "Ação necessária"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__active
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__active
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__active
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_ids
+msgid "Activities"
+msgstr "Atividades"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoração de exceção de atividade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_state
+msgid "Activity State"
+msgstr "Estado da atividade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícone de tipo de atividade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.helpdesk_tickets
+msgid "All Tickets"
+msgstr "Todos os Tickets"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.ticket_approved
+msgid "Approve Ticket"
+msgstr "Aprovar ticket"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "Archived"
+msgstr "Arquivado"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__assign_user
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__assign_user
+msgid "Assign User"
+msgstr "Atribuir usuário"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "Assigned To"
+msgstr "Atribuído a"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__assigned_user
+msgid "Assigned User"
+msgstr "Usuário atribuído"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__assigned_user
+msgid "Assigned User Name"
+msgstr "Nome de usuário atribuído"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__attachment_ids
+msgid "Attachment"
+msgstr "Anexo"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_attachment_count
+msgid "Attachment Count"
+msgstr "Contagem de anexos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__attachment_ids
+msgid "Attachment Line"
+msgstr "Linha de Anexo"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Attachments"
+msgstr "Anexos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.server,name:odoo_website_helpdesk.auto_close_ticket_ir_actions_server
+#: model:ir.cron,cron_name:odoo_website_helpdesk.auto_close_ticket
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__auto_close_ticket
+msgid "Auto Close Ticket"
+msgstr "Tíquete de fechamento automático"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__auto_close_ticket
+msgid "Auto Close ticket"
+msgstr "Tíquete de fechamento automático"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Automatically Close Ticket"
+msgstr "Fechar ticket automaticamente"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__billable
+msgid "Billable"
+msgstr "Faturável"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_project_task__ticket_billed
+msgid "Billed"
+msgstr "Faturado"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_project_task__ticket_billed
+msgid "Billed Tickets"
+msgstr "Bilhetes faturados"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__kanban_state__blocked
+msgid "Blocked"
+msgstr "Bloqueado"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__cancel_stage
+msgid "Cancel Stage"
+msgstr "Cancelar fase"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.ticket_canceled
+msgid "Cancel Ticket"
+msgstr "Cancelar ingresso"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__cancel_stage
+msgid "Cancel stage"
+msgstr "Cancelar estágio"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk_categories
+#: model:ir.model,name:odoo_website_helpdesk.model_helpdesk_categories
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk_categories
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_categories_tree
+msgid "Categories"
+msgstr "Categorias"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Categorize the Tickets"
+msgstr "Categorize os ingressos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__category_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__show_category
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__category_id
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__show_category
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Category"
+msgstr "Categoria"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_helpdesk_categories__name
+msgid "Category Name"
+msgstr "Nome da Categoria"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Choose Products on Website Form"
+msgstr "Escolha os produtos no formulário do site"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Close Stage"
+msgstr "Fechar estágio"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.helpdesk_rating
+msgid "Close Ticket And Feedback"
+msgstr "Fechar ticket e feedback"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__closing_stage
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__closed_stage
+msgid "Closing Stage"
+msgstr "Fase de encerramento"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__closed_stage
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__closing_stage
+msgid "Closing stage"
+msgstr "Fase de encerramento"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__color
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__color
+msgid "Color"
+msgstr "Cor"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configurações"
+
+#. module: odoo_website_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk_configuration
+msgid "Configuration"
+msgstr "Configuração"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Consultant"
+msgstr "Consultor"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.portal_ticket_details
+msgid "Contact"
+msgstr "Contato"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__phone
+msgid "Contact Number"
+msgstr "Número de contato"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid ""
+"Contact us about anything related to our\n"
+"                                    company or services.\n"
+"                                    <br/>\n"
+"                                    We'll do our best to get back to you as\n"
+"                                    soon\n"
+"                                    as possible."
+msgstr ""
+"Contate-nos sobre qualquer coisa relacionada ao nosso\n"
+"                                    empresa ou serviços.\n"
+"                                    <br/>\n"
+"                                    Faremos o nosso melhor para entrar em contato com você o mais rápido possível\n"
+"                                    breve\n"
+"                                    que possível."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__cost
+msgid "Cost Per Unit"
+msgstr "Custo por unidade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__cost
+msgid "Cost per hour"
+msgstr "Custo por hora"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Create Date"
+msgstr "Criar Data"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Create Invoice"
+msgstr "Criar recibo"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__new_ticket
+msgid "Create New Ticket ?"
+msgstr "Criar novo ingresso?"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__create_task
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__create_task
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__show_create_task
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__show_create_task
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Create Task"
+msgstr "Criar tarefa"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__show_create_task
+msgid "Create Tasks"
+msgstr "Criar tarefas"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.ticket_created
+msgid "Create Ticket"
+msgstr "Criar ingresso"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Create Ticket From Website"
+msgstr "Criar ingresso no site"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.actions.act_window,help:odoo_website_helpdesk.action_helpdesk_tag
+#: model_terms:ir.actions.act_window,help:odoo_website_helpdesk.action_helpdesk_types
+msgid "Create a new record!"
+msgstr "Crie um novo recorde!"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Create tasks from tickets"
+msgstr "Crie tarefas a partir de tickets"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__create_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__create_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__create_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag__create_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types__create_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__create_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__create_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__create_date
+msgid "Created date"
+msgstr "Data de criação"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__create_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__create_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag__create_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types__create_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__create_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__create_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_merge_tickets__new_ticket
+msgid "Creating new tickets or not."
+msgstr "Criando novos tickets ou não."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__create_date
+msgid "Creation Date"
+msgstr "Data de criação"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__customer_id
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_quick_create_form
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__customer_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__customer_name
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__customer_id
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__customer_name
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_merge_tickets__customer_id
+msgid "Customer Name"
+msgstr "nome do cliente"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__customer_rating
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Customer Rating"
+msgstr "Avaliação do cliente"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_group_by_table
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_table
+msgid "Date"
+msgstr "Data"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_kanban
+msgid "Delete"
+msgstr "Excluir"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__description
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__description
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__description
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_quick_create_form
+msgid "Description"
+msgstr "Descrição"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_support_tickets__description
+msgid "Description of the tickets"
+msgstr "Descrição dos ingressos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__active
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_merge_tickets__active
+msgid "Disable Record"
+msgstr "Desativar registro"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.merge_tickets_view_form
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__display_name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__display_name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__display_name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag__display_name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types__display_name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__display_name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__display_name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_support_tickets__display_name
+msgid "Display name of the merged tickets"
+msgstr "Nome de exibição dos tickets mesclados"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.portal_ticket_details
+msgid "Download"
+msgstr "Download"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_kanban
+msgid "Dropdown menu"
+msgstr "Menu suspenso"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_kanban
+msgid "Edit..."
+msgstr "Editar..."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__email
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__email
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_team__email
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__email
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Email"
+msgstr "E-mail"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Assistente de composição de e-mail"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__end_date
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__end_date
+msgid "End Date"
+msgstr "Data final"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_website_inherit
+msgid "Enter Ticket Number"
+msgstr "Insira o número do bilhete"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_merge_tickets__subject
+msgid "Enter the New Ticket Subject"
+msgstr "Insira o novo assunto do ticket"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__customer_rating__5
+msgid "Extreme High"
+msgstr "Extremamente alto"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__fold
+msgid "Fold"
+msgstr "Dobrar"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__fold
+msgid "Folded"
+msgstr "Guardada"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__folded
+msgid "Folded Stage"
+msgstr "Palco Dobrado"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__folded
+msgid "Folded in Kanban"
+msgstr "Dobrado em Kanban"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (parceiros)"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Ícone incrível da fonte, por exemplo. tarefas fa"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__group_ids
+msgid "Group"
+msgstr "Grupo"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__group_ids
+msgid "Group ID"
+msgstr "ID do grupo"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk_team
+#: model:ir.module.category,name:odoo_website_helpdesk.module_category_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk
+#: model:website.menu,name:odoo_website_helpdesk.website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Helpdesk"
+msgstr "Central de Ajuda"
+
+#. module: odoo_website_helpdesk
+#: model:ir.module.category,description:odoo_website_helpdesk.module_category_helpdesk
+msgid "Helpdesk Access Groups"
+msgstr "Grupos de acesso ao helpdesk"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.client,name:odoo_website_helpdesk.helpdesk_dashboard_action
+msgid "Helpdesk Dashboard"
+msgstr "Painel de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__helpdesk_menu_show
+msgid "Helpdesk Menu"
+msgstr "Menu do suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.helpdesk_replay_email_template
+msgid "Helpdesk Reply Email Template"
+msgstr "Modelo de e-mail de resposta do helpdesk"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_helpdesk_tag
+msgid "Helpdesk Tags"
+msgstr "Tags de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_help_team
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__team_id
+msgid "Helpdesk Team"
+msgstr "Equipe de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_team__name
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__team_id
+msgid "Helpdesk Team Name"
+msgstr "Nome da equipe de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk_general_settings
+#: model:ir.model,name:odoo_website_helpdesk.model_help_ticket
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_view_calendar
+msgid "Helpdesk Ticket"
+msgstr "Tíquete de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.report,name:odoo_website_helpdesk.action_report_helpdesk_ticket
+msgid "Helpdesk Ticket Report"
+msgstr "Relatório de tickets de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_helpdesk_types
+msgid "Helpdesk Types"
+msgstr "Tipos de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__helpdesk_menu_show
+msgid "Helpdesk menu"
+msgstr "Menu do suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__customer_rating__3
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__priority__3
+msgid "High"
+msgstr "Alto"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.portal_ticket_details
+msgid "History"
+msgstr "História"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag__id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types__id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__id
+msgid "ID"
+msgstr "EU IA"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_exception_icon
+msgid "Icon"
+msgstr "Ícone"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícone para indicar uma atividade de exceção."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se marcada, novas mensagens requerem sua atenção."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__message_has_error
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se marcada, algumas mensagens apresentam um erro de entrega."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__kanban_state__done
+msgid "In Progress"
+msgstr "Em andamento"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__invoice_ids
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Invoices"
+msgstr "Faturas"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__invoice_ids
+msgid "Invoicing id"
+msgstr "ID de faturamento"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_is_follower
+msgid "Is Follower"
+msgstr "É seguidor"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Issue Description"
+msgstr "descrição do problema"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid "Issue description in detail"
+msgstr "Descrição detalhada do problema"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_account_move
+msgid "Journal Entry"
+msgstr "Lançamento de Diário"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__kanban_state
+msgid "Kanban State"
+msgstr "Estado Kanban"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team____last_update
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket____last_update
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories____last_update
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag____last_update
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types____last_update
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets____last_update
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets____last_update
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__last_update_date
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__last_update_date
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Last Update Date"
+msgstr "Data da última atualização"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__write_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__write_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__write_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag__write_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types__write_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__write_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__write_uid
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__write_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__write_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__write_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag__write_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types__write_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__write_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__write_date
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__user_id
+msgid "Login User"
+msgstr "Usuário de login"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__customer_rating__1
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__priority__1
+msgid "Low"
+msgstr "Baixo"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.odoo_website_helpdesk_to_customer
+msgid "Mail To Customer Assign to User"
+msgstr "Correio para cliente atribuído ao usuário"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Anexo Principal"
+
+#. module: odoo_website_helpdesk
+#: model:res.groups,name:odoo_website_helpdesk.helpdesk_manager
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__member_ids
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_team_form
+msgid "Members"
+msgstr "Membros"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid "Mention your Issue here"
+msgstr "Mencione seu problema aqui"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__merge_count
+msgid "Merge Count"
+msgstr "Contagem de mesclagem"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__merge_reason
+msgid "Merge Reason"
+msgstr "Motivo da mesclagem"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__merge_ticket_invisible
+msgid "Merge Ticket"
+msgstr "Mesclar tíquete"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__merge_ticket_invisible
+msgid "Merge Ticket Invisible or Not"
+msgstr "Mesclar ticket invisível ou não"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_merge_tickets
+msgid "Merge Tickets"
+msgstr "Mesclar ingressos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__merged_ticket
+msgid "Merged Ticket ID"
+msgstr "ID do ticket mesclado"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Merged Tickets"
+msgstr "Ingressos mesclados"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__merge_count
+msgid "Merged Tickets Count"
+msgstr "Contagem de tickets mesclados"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_merge_tickets__merge_reason
+msgid "Merging Reason"
+msgstr "Motivo da fusão"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_merge_tickets
+msgid "Merging the selected tickets"
+msgstr "Mesclando os tickets selecionados"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_has_error
+msgid "Message Delivery error"
+msgstr "Erro na entrega de mensagens"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_ids
+msgid "Messages"
+msgstr "Mensagens"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Prazo da minha atividade"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_thanks
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid "My Company"
+msgstr "Minha compania"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk_my
+msgid "My Helpdesk"
+msgstr "Meu suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.helpdesk_tickets_my
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.portal_my_tickets
+msgid "My Tickets"
+msgstr "Meus ingressos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__name
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__name
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Prazo da próxima atividade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumo da próxima atividade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_type_id
+msgid "Next Activity Type"
+msgstr "Próximo tipo de atividade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__no_of_days
+msgid "No Of Days"
+msgstr "Não de dias"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__no_of_days
+msgid "No of Days"
+msgstr "Nº de dias"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__customer_rating__2
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__priority__2
+msgid "Normal"
+msgstr "Normal"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de ações"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de erros"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensagens que exigem ação"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensagens com erro de entrega"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Other Information"
+msgstr "Outra informação"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Person Name"
+msgstr "Nome da pessoa"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__phone
+msgid "Phone"
+msgstr "Telefone"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid ""
+"Post\n"
+"                                        Your\n"
+"                                        Review"
+msgstr ""
+"Post\n"
+"                                        Your\n"
+"                                        Review"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__priority
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_group_by_table
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_table
+msgid "Priority"
+msgstr "Prioridade"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__priority
+msgid "Priority of the Ticket"
+msgstr "Prioridade do bilhete"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__product_id
+msgid "Product"
+msgstr "produtos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__product_id
+msgid "Product Name"
+msgstr "Nome do Produto"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__product_website
+msgid "Product On Website"
+msgstr "Produto no site"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__product_website
+msgid "Product on website"
+msgstr "Produto no site"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__project_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__project_id
+msgid "Project"
+msgstr "Projeto"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__project_id
+msgid "Project Name"
+msgstr "Nome do Projeto"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_team__project_id
+msgid "Projects"
+msgstr "Projetos"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Provide the reason in detail"
+msgstr "Forneça o motivo detalhadamente"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__public_ticket
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__public_ticket
+msgid "Public Ticket"
+msgstr "Bilhete Público"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__kanban_state__normal
+msgid "Ready"
+msgstr "Preparar"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.ticket_reopened
+msgid "Reopened Ticket"
+msgstr "Bilhete reaberto"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__replied_date
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Replied Date"
+msgstr "Data da resposta"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__replied_date
+msgid "Replied date"
+msgstr "Data de resposta"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Reply"
+msgstr "Responder"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_res_config_settings__reply_template_id
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_res_config_settings__reply_template_id
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Reply Template"
+msgstr "Modelo de resposta"
+
+#. module: odoo_website_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.report_helpdesk
+msgid "Report"
+msgstr "Relatório"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_report_helpdesk
+msgid "Report Help Desk"
+msgstr "Relatório de suporte técnico"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__activity_user_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__user_id
+msgid "Responsible User"
+msgstr "Usuário Responsável"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_merge_tickets__user_id
+msgid "Responsible user name"
+msgstr "Nome de usuário responsável"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__review
+msgid "Review"
+msgstr "Análise"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erro de entrega de SMS"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.merge_tickets_view_form
+msgid "Save"
+msgstr "Salvar"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_website_inherit
+msgid "Search"
+msgstr "Procurar"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Seat a Default Reply Template"
+msgstr "Assente um modelo de resposta padrão"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_categories__sequence
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__sequence
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_helpdesk_categories__sequence
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__sequence
+msgid "Sequence"
+msgstr "Seqüência"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__service_product_id
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__service_product_id
+msgid "Service Product"
+msgstr "Produto de serviço"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Set The Closing stage"
+msgstr "Defina o estágio de fechamento"
+
+#. module: odoo_website_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk_settings
+msgid "Settings"
+msgstr "Configurações"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__show_category
+msgid "Show Category"
+msgstr "Mostrar categoria"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__stage_id
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_group_by_table
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_table
+msgid "Stage"
+msgstr "Estágio"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk_stage
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__stage_id
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk_stage
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Stages"
+msgstr "Estágios"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__start_date
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__start_date
+msgid "Start Date"
+msgstr "Data de início"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__starting_stage
+msgid "Start Stage"
+msgstr "Estágio inicial"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__starting_stage
+msgid "Starting Stage"
+msgstr "Estágio inicial"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Status"
+msgstr "Status"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status baseado em atividades\n"
+"Atrasado: a data de vencimento já passou\n"
+"Hoje: a data da atividade é hoje\n"
+"Planejado: Atividades futuras."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_support_tickets__merged_ticket
+msgid "Storing merged ticket id"
+msgstr "Armazenando o ID do ticket mesclado"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__subject
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__subject
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__subject
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_group_by_table
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_table
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_quick_create_form
+msgid "Subject"
+msgstr "Assunto"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__subject
+msgid "Subject of the Ticket"
+msgstr "Assunto do Bilhete"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_support_tickets__subject
+msgid "Subject of the merged tickets"
+msgstr "Assunto dos tickets mesclados"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__support_team_id
+msgid "Support Team"
+msgstr "Equipe de suporte"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_merge_tickets__support_team_id
+msgid "Support Team Name"
+msgstr "Nome da equipe de suporte"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.report,name:odoo_website_helpdesk.report_ticket
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__support_ticket_id
+msgid "Support Ticket"
+msgstr "Tíquete de suporte"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_support_tickets
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_merge_tickets__support_ticket_ids
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_support_tickets__support_ticket_id
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.merge_tickets_view_form
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_form
+msgid "Support Tickets"
+msgstr "Tíquetes de suporte"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_support_tickets__support_ticket_id
+msgid "Support tickets"
+msgstr "Tíquetes de suporte"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_tag__name
+msgid "Tag"
+msgstr "Marcação"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_helpdesk_tag__name
+msgid "Tag Name"
+msgstr "Nome da etiqueta"
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk_tag
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__tags
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__tags
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk_tag
+msgid "Tags"
+msgstr "Tag"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_project_task
+msgid "Task"
+msgstr "Tarefa"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_team__create_task
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__create_task
+msgid "Task created or not"
+msgstr "Tarefa criada ou não"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__task_ids
+msgid "Task id"
+msgstr "ID da tarefa"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__task_ids
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.view_helpdesk_form
+msgid "Tasks"
+msgstr "Tarefas"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "Team"
+msgstr "Equipe"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "Team Head"
+msgstr "Chefe de equipe"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_team__team_lead_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__team_head
+#: model:res.groups,name:odoo_website_helpdesk.helpdesk_team_leader
+msgid "Team Leader"
+msgstr "Líder da equipe"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_team__team_lead_id
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__team_head
+msgid "Team Leader Name"
+msgstr "Nome do líder da equipe"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_team__member_ids
+msgid "Team Members"
+msgstr "Membros do time"
+
+#. module: odoo_website_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk_team
+msgid "Teams"
+msgstr "Equipes"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_ticket_stage__template_id
+msgid "Template"
+msgstr "Modelo"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_ticket_stage__template_id
+msgid "Templates"
+msgstr "Modelos"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_thanks
+msgid "Thank You!"
+msgstr "Obrigado!"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_group_by_table
+msgid ""
+"There are currently no tickets issued for your\n"
+"            account."
+msgstr ""
+"Atualmente não há bilhetes emitidos para o seu\n"
+"            conta."
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_table
+msgid "There are currently no tickets issued for your account."
+msgstr "Atualmente não há ingressos emitidos para sua conta."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_account_bank_statement_line__ticket_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_account_move__ticket_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_account_payment__ticket_id
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_project_task__ticket_id
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_project_task__ticket_id
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "Ticket"
+msgstr "Bilhete"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.odoo_website_helpdesk_assign
+msgid "Ticket Assign"
+msgstr "Atribuição de ticket"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,name:odoo_website_helpdesk.odoo_website_helpdesk_assign_user
+msgid "Ticket Assign to User"
+msgstr "Atribuição de ticket ao usuário"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,subject:odoo_website_helpdesk.ticket_canceled
+msgid "Ticket Canceled"
+msgstr "Bilhete cancelado"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,subject:odoo_website_helpdesk.helpdesk_rating
+msgid "Ticket Closed"
+msgstr "Bilhete fechado"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,subject:odoo_website_helpdesk.ticket_created
+msgid "Ticket Created"
+msgstr "Bilhete criado"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,subject:odoo_website_helpdesk.ticket_reopened
+msgid "Ticket Reopened"
+msgstr "Bilhete reaberto"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "Ticket Search"
+msgstr "Pesquisa de ingressos"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.ticket_res_config_settings_view_form
+msgid "Ticket Settings"
+msgstr "Configurações de ingresso"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,subject:odoo_website_helpdesk.ticket_approved
+msgid "Ticket Solved"
+msgstr "Bilhete resolvido"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_ticket_stage
+msgid "Ticket Stage"
+msgstr "Estágio de Ingressos"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Ticket Subject"
+msgstr "Assunto do bilhete"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__ticket_type
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__ticket_type
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_content_preview
+msgid "Ticket Type"
+msgstr "Tipo de bilhete"
+
+#. module: odoo_website_helpdesk
+#: model:ir.ui.menu,name:odoo_website_helpdesk.helpdesk_management
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_view_activity
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.portal_my_home_helpdesk
+msgid "Tickets"
+msgstr "Ingressos"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_helpdesk_types__name
+msgid "Type"
+msgstr "Tipo"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de atividade de exceção registrada."
+
+#. module: odoo_website_helpdesk
+#: model:ir.actions.act_window,name:odoo_website_helpdesk.action_helpdesk_types
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_helpdesk_types__name
+#: model:ir.ui.menu,name:odoo_website_helpdesk.menu_helpdesk_types
+msgid "Types"
+msgstr "Tipos"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "UnArchived"
+msgstr "Não arquivado"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__user_id
+#: model:res.groups,name:odoo_website_helpdesk.helpdesk_user
+msgid "User"
+msgstr "Do utilizador"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__customer_rating__4
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__priority__4
+msgid "Very High"
+msgstr "Muito alto"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__customer_rating__0
+#: model:ir.model.fields.selection,name:odoo_website_helpdesk.selection__help_ticket__priority__0
+msgid "Very Low"
+msgstr "Muito baixo"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+msgid ""
+"We will get back\n"
+"                                            to you shortly."
+msgstr ""
+"Nós vamos voltar\n"
+"                                            para você em breve."
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_thanks
+msgid ""
+"We will get back\n"
+"                                    to you shortly."
+msgstr ""
+"Nós vamos voltar\n"
+"                                    para você em breve."
+
+#. module: odoo_website_helpdesk
+#: model:ir.model,name:odoo_website_helpdesk.model_website_menu
+msgid "Website Menu"
+msgstr "Menu do site"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,field_description:odoo_website_helpdesk.field_help_ticket__website_message_ids
+msgid "Website Messages"
+msgstr "Mensagens do site"
+
+#. module: odoo_website_helpdesk
+#: model:ir.model.fields,help:odoo_website_helpdesk.field_help_ticket__website_message_ids
+msgid "Website communication history"
+msgstr "Histórico de comunicação do site"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid "Write a message..."
+msgstr "Escreve uma mensagem..."
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.rating_form
+msgid ""
+"Your\n"
+"                                        Review"
+msgstr ""
+"Your\n"
+"                                        Review"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+msgid "Your Ticket"
+msgstr "Seu ingresso"
+
+#. module: odoo_website_helpdesk
+#: model:res.groups,name:odoo_website_helpdesk.group_show_category
+msgid "group_show_category"
+msgstr "grupo_show_category"
+
+#. module: odoo_website_helpdesk
+#: model:res.groups,name:odoo_website_helpdesk.group_show_subcategory
+msgid "group_show_subcategory"
+msgstr "group_show_subcategory"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.helpdesk_thanks_ir_ui_view
+msgid ""
+"has been registered\n"
+"                                                <b>successfully</b>"
+msgstr ""
+"foi registrado\n"
+"                                                <b>com sucesso</b>"
+
+#. module: odoo_website_helpdesk
+#: model_terms:ir.ui.view,arch_db:odoo_website_helpdesk.help_ticket_search
+msgid "my_ticket"
+msgstr "meu_ticket"
+
+#. module: odoo_website_helpdesk
+#: model:mail.template,subject:odoo_website_helpdesk.helpdesk_replay_email_template
+msgid "{{ object.name }} Replay"
+msgstr "{{ object.name }} Repetição"

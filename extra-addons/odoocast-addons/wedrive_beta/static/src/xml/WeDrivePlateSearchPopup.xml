@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="WeDrivePlateSearchPopup" owl="1">
+        <div class="popup">
+            <header>
+                <div class="title">Consulta Placa</div>
+            </header>
+            <main class="body">
+                <div class="attribute">
+                    <div class="flex pos-input-container">
+                        <span class="label">Placa  </span>
+                        <input class="subsection-list border-end" 
+                        name="plate"
+                        t-model="changes.plate"
+                        t-on-change="captureChange"/>
+                    </div>
+                    <br />
+                    <div class="flex pos-input-container">
+                        <span class="label">CPF/CNPJ  </span>
+                        <input class="subsection-list" 
+                        name="plate"
+                        t-model="changes.cnpj_cpf"
+                        t-on-change="captureChange"/>
+                    </div>
+                    <br />
+                    <div class="flex pos-input-container">
+                        <span class="label">Nome  </span>
+                        <input class="subsection-list" 
+                        name="name"
+                        t-model="changes.name"
+                        t-on-change="captureChange"/>
+                    </div>
+                    <br />
+                    <div class="flex pos-input-container">
+                        <span class="label">Telefone  </span>
+                        <input class="subsection-list" 
+                        name="phone"
+                        t-model="changes.phone"
+                        t-on-change="captureChange"/>
+                    </div>
+                </div>
+            </main>
+            <footer class="footer">
+                <div class="button" t-on-click="consultPlate" title="Consultar Placa">Consultar Placa</div>
+                <div class="button cancel" t-on-click="cancel" title="Cancelar">Cancelar</div>
+            </footer>
+        </div>
+    </t>
+</templates>

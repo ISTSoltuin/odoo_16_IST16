@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="qa_team_form_view" model="ir.ui.view">
+        <field name="name">qa.team.form.view</field>
+        <field name="model">qa.team</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Create QA Team project" name="create_qa_team_project" type="object"
+                            class="oe_highlight" attrs="{'invisible': [('qa_team_project_id', '!=', False)]}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="title"/>
+                        <h1>
+                            <field name="title" placeholder="e.g. Quality Assurance Team...."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="qa_team_project_id"/>
+                        </group>
+                        <group>
+                            <field name="qa_manager_id" widget="many2one_avatar_user"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="team_members" string="Team Members">
+                            <field name="employee_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="qa_team_tree_view" model="ir.ui.view">
+        <field name="name">qa.team.tree.view</field>
+        <field name="model">qa.team</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="qa_manager_id" widget="many2one_avatar_user"/>
+            </tree>
+        </field>
+    </record>
+    <record id="qa_team_kanban_view" model="ir.ui.view">
+        <field name="name">qa.team.kanban.view</field>
+        <field name="model">qa.team</field>
+        <field name="arch" type="xml">
+            <kanban class="">
+                <field name="title"/>
+                <field name="qa_manager_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title">
+                                    <strong>
+                                        <field name="title"/>
+                                    </strong>
+                                </strong>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="qa_manager_id" widget="many2one_avatar_user"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="qa_team_search_view" model="ir.ui.view">
+        <field name="name">qa.team.search.view</field>
+        <field name="model">qa.team</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <field name="qa_manager_id"/>
+                <group string="Group By">
+                    <filter name="qa_manager_id" string="QA Manager"
+                            context="{'group_by':'qa_manager_id'}"/>
+                    <filter name="employee_ids" string="Employee"
+                            context="{'group_by':'employee_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_qa_team" model="ir.actions.act_window">
+        <field name="name">QA Team</field>
+        <field name="res_model">qa.team</field>
+        <field name="view_mode">kanban,tree,form,search,activity</field>
+    </record>
+</odoo>

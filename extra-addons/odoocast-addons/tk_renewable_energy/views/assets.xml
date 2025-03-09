@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_renewable_energy_dashboard" model="ir.actions.client">
+        <field name="name">Statistics</field>
+        <field name="tag">renewable_energy_dashboard</field>
+    </record>
+    <!-- <template id="assets_backend" name="assets backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/tk_renewable_energy/static/src/css/lib/dashboard.css"/>
+            <link rel="stylesheet" href="/tk_renewable_energy/static/src/css/style.scss"/>
+            <script type="text/javascript" src="/tk_renewable_energy/static/src/js/lib/apexcharts.js"/>
+            <script type="text/javascript" src="/tk_renewable_energy/static/src/js/renewable_energy_dashboard.js"/>
+        </xpath>
+    </template> -->
+</odoo>
