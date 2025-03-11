@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sales_pipeline,Access Sales Pipeline,model_your_model_name,base.group_user,1,1,1,1
-access_create_sales_pipeline_wizard,Access Create Sales Pipeline Wizard,model_create_sales_pipeline_wizard,base.group_user,1,1,1,1

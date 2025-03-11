@@ -1,3 +1,0 @@
-<odoo>
-    <function name="set_defaults" model="asterisk_plus.settings"/>
-</odoo>
