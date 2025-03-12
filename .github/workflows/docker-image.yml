@@ -31,5 +31,5 @@ jobs:
 
       - name: Build Docker Image Odoo 16.0.1.2.0
         run: |
-          docker buildx build --platform linux/amd64 -t aosdevs/odoocast:odoo.debian.16.0.1.2.6.aulao odoocast/16.0/
+          docker buildx build --platform linux/amd64 -t aosdevs/odoocast:odoo.debian.16.0.1.2.6.aulao .
           docker push aosdevs/odoocast:odoo.debian.16.0.1.2.6.aulao
