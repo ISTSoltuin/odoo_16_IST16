@@ -1,57 +1,47 @@
-version: '3'
+version: '3.7'
+
 services:
-  db:
-    user: root
+  web_v16:
+    image: aosdevs/odoocast:odoo.debian.16.0.1.2.5.agilecar
+    ports:
+      - "8069:8069"  # Mapeando para uma porta diferente no host
+    volumes:
+      - odoo-web-data-v16:/var/lib/odoo
+    environment:
+      - HOST=db_v16
+      - USER=odoo
+      - PASSWORD=odoo
+    command: 
+      odoo -c /etc/odoo/odoo.conf
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    networks:
+      - odoo_overlay
+
+  db-odoocast:
     image: postgres:15
     environment:
-      POSTGRES_USER: odoo
-      POSTGRES_PASSWORD: odoo
-      POSTGRES_DB: postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - odoo-16-db-postgresql:/var/lib/postgresql/data
-    networks:
-      - odoo-16-net
-  pgadmin4:
-    user: root
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@odoocast.com.br
-      PGADMIN_DEFAULT_PASSWORD: odoocast@2023
+      - odoo-db-data-v16:/var/lib/postgresql/data/pgdata
     ports:
-      - "8080:80"
+      - 5433:5432  # Mapeando para uma porta diferente no host
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
     networks:
-      - odoo-16-net
-    volumes:
-      - odoo-16-db-pgadmin4:/var/lib/pgadmin4/data
-    depends_on:
-      - db
-  odoo:
-    user: root
-    build: .
-    depends_on:
-      - db
-    ports:
-      - "8069:8069"
-
-    # only for development usage
-    # command: sleep infinity
-    # only for development usage
-
-    volumes:
-      - odoo-16-filestore:/var/lib/odoo
-      - ./odoo:/usr/lib/python3/dist-packages/odoo
-      - ./extra-addons:/usr/lib/python3/dist-packages/odoo/extra-addons
-      - ./data-dir:/usr/lib/python3/dist-packages/odoo/data-dir
-      - ./.vscode:/usr/lib/python3/dist-packages/odoo/.vscode
-      - ./odoo4devs.conf:/usr/lib/python3/dist-packages/odoo/odoo4devs.conf
-    networks:
-      - odoo-16-net
+      - odoo_overlay
 
 volumes:
-  odoo-16-db-postgresql:
-  odoo-16-db-pgadmin4:
-  odoo-16-filestore:
+  odoo-web-data-v16:
+  odoo-db-data-v16:
 
 networks:
-  odoo-16-net:
-    driver: bridge
+  odoo_overlay:
+    driver: overlay
