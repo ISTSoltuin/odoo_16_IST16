@@ -16,9 +16,9 @@ class DocumentSerie(models.Model):
     _description = "Fiscal Document Serie"
     _inherit = "l10n_br_fiscal.data.abstract"
 
-    code = fields.Char(size=3)
+    code = fields.Char(size=3, unaccent=False)
 
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, unaccent=False)
 
     active = fields.Boolean(default=True)
 
@@ -79,7 +79,7 @@ class DocumentSerie(models.Model):
         return super().create(vals_list)
 
     def name_get(self):
-        return [(r.id, "{}".format(r.name)) for r in self]
+        return [(r.id, f"{r.name}") for r in self]
 
     def _is_invalid_number(self, document_number):
         self.ensure_one()

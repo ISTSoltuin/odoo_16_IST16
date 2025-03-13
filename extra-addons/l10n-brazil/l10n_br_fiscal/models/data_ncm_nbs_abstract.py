@@ -9,6 +9,7 @@ from erpbrasil.base import misc
 from lxml import etree
 
 from odoo import _, api, fields, models
+from odoo.tools import config as odooconfig
 
 from .ibpt import DeOlhoNoImposto
 
@@ -90,6 +91,10 @@ class DataNcmNbsAbstract(models.AbstractModel):
                     company.ibpt_token,
                     misc.punctuation_rm(company.cnpj_cpf),
                     company.state_id.code,
+                    odooconfig.get("ibpt_request_timeout")
+                    or self.env["ir.config_parameter"]
+                    .sudo()
+                    .get_param("ibpt_request_timeout"),
                 )
 
                 result = self._get_ibpt(config, record.code_unmasked)
@@ -142,20 +147,18 @@ class DataNcmNbsAbstract(models.AbstractModel):
             lambda r: r.product_tmpl_qty > 0 and not r.tax_estimate_ids
         )
 
-        query = """
-            WITH {0}_max_date AS (
+        query = f"""
+            WITH {object_name.lower()}_max_date AS (
                SELECT
-                   {0}_id,
+                   {object_name.lower()}_id,
                    max(create_date)
                FROM
                    l10n_br_fiscal_tax_estimate
-               GROUP BY {0}_id)
-               SELECT {0}_id
-               FROM {0}_max_date
+               GROUP BY {object_name.lower()}_id)
+               SELECT {object_name.lower()}_id
+               FROM {object_name.lower()}_max_date
             WHERE max < %(create_date)s
-            """.format(
-            object_name.lower()
-        )
+            """
 
         query_params = {"create_date": data_max.strftime("%Y-%m-%d")}
 

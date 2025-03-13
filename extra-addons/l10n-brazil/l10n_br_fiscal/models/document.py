@@ -10,6 +10,7 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 from ..constants.fiscal import (
+    DOCUMENT_ISSUER,
     DOCUMENT_ISSUER_COMPANY,
     DOCUMENT_ISSUER_DICT,
     DOCUMENT_ISSUER_PARTNER,
@@ -20,10 +21,13 @@ from ..constants.fiscal import (
     MODELO_FISCAL_NFCE,
     MODELO_FISCAL_NFE,
     MODELO_FISCAL_NFSE,
+    SITUACAO_EDOC,
     SITUACAO_EDOC_AUTORIZADA,
     SITUACAO_EDOC_CANCELADA,
     SITUACAO_EDOC_DENEGADA,
+    SITUACAO_EDOC_EM_DIGITACAO,
     SITUACAO_EDOC_INUTILIZADA,
+    SITUACAO_FISCAL,
 )
 
 
@@ -49,8 +53,8 @@ class Document(models.Model):
     _name = "l10n_br_fiscal.document"
     _inherit = [
         "l10n_br_fiscal.document.mixin.fields",
-        "l10n_br_fiscal.document.electronic",
         "l10n_br_fiscal.document.move.mixin",
+        "mail.thread",
     ]
     _description = "Fiscal Document"
     _check_company_auto = True
@@ -58,6 +62,25 @@ class Document(models.Model):
     name = fields.Char(
         compute="_compute_name",
         store=True,
+        index=True,
+    )
+
+    state_edoc = fields.Selection(
+        selection=SITUACAO_EDOC,
+        string="Situação e-doc",
+        default=SITUACAO_EDOC_EM_DIGITACAO,
+        copy=False,
+        required=True,
+        readonly=True,
+        # tracking=True,
+        index=True,
+    )
+
+    state_fiscal = fields.Selection(
+        selection=SITUACAO_FISCAL,
+        string="Situação Fiscal",
+        copy=False,
+        # tracking=True,
         index=True,
     )
 
@@ -71,21 +94,11 @@ class Document(models.Model):
         store=True,
     )
 
-    document_number = fields.Char(
-        copy=False,
-        index=True,
-    )
-
     rps_number = fields.Char(
         string="RPS Number",
         copy=False,
         index=True,
-    )
-
-    document_key = fields.Char(
-        string="Key",
-        copy=False,
-        index=True,
+        unaccent=False,
     )
 
     document_date = fields.Datetime(
@@ -97,10 +110,6 @@ class Document(models.Model):
         string="User",
         index=True,
         default=lambda self: self.env.user,
-    )
-
-    document_type_id = fields.Many2one(
-        comodel_name="l10n_br_fiscal.document.type",
     )
 
     operation_name = fields.Char(
@@ -116,15 +125,6 @@ class Document(models.Model):
     date_in_out = fields.Datetime(
         string="Date IN/OUT",
         copy=False,
-    )
-
-    document_serie_id = fields.Many2one(
-        comodel_name="l10n_br_fiscal.document.serie",
-        domain="[('active', '=', True)," "('document_type_id', '=', document_type_id)]",
-    )
-
-    document_serie = fields.Char(
-        string="Serie Number",
     )
 
     document_related_ids = fields.One2many(
@@ -163,23 +163,6 @@ class Document(models.Model):
         default=EDOC_PURPOSE_NORMAL,
     )
 
-    event_ids = fields.One2many(
-        comodel_name="l10n_br_fiscal.event",
-        inverse_name="document_id",
-        string="Events",
-        copy=False,
-        readonly=True,
-    )
-
-    correction_event_ids = fields.One2many(
-        comodel_name="l10n_br_fiscal.event",
-        inverse_name="document_id",
-        domain=[("type", "=", "14")],
-        string="Correction Events",
-        copy=False,
-        readonly=True,
-    )
-
     document_type = fields.Char(
         string="Document Type Code",
         related="document_type_id.code",
@@ -194,9 +177,21 @@ class Document(models.Model):
         copy=False,
     )
 
-    # Você não vai poder fazer isso em modelos que já tem state
-    # TODO Porque não usar o campo state do fiscal.document???
+    currency_id = fields.Many2one(
+        comodel_name="res.currency",
+        string="Currency",
+        compute="_compute_currency_id",
+    )
+
+    # this related "state" field is required for the status bar widget
+    # while state_edoc avoids colliding with the state field
+    # of objects where the fiscal mixin might be injected.
     state = fields.Selection(related="state_edoc", string="State")
+
+    issuer = fields.Selection(
+        selection=DOCUMENT_ISSUER,
+        default=DOCUMENT_ISSUER_COMPANY,
+    )
 
     document_subsequent_ids = fields.One2many(
         comodel_name="l10n_br_fiscal.subsequent.document",
@@ -208,6 +203,29 @@ class Document(models.Model):
         string="Subsequent documents generated?",
         compute="_compute_document_subsequent_generated",
         default=False,
+    )
+
+    transport_modal = fields.Selection(
+        selection=[
+            ("01", "Rodoviário"),
+            ("02", "Aéreo"),
+            ("03", "Aquaviário"),
+            ("04", "Ferroviário"),
+            ("05", "Dutoviário"),
+            ("06", "Multimodal"),
+        ],
+        string="Modal de Transporte",
+    )
+
+    service_provider = fields.Selection(
+        selection=[
+            ("0", "Remetente"),
+            ("1", "Expedidor"),
+            ("2", "Recebedor"),
+            ("3", "Destinatário"),
+            ("4", "Outros"),
+        ],
+        string="Tomador do Serviço",
     )
 
     @api.constrains("document_key")
@@ -281,6 +299,11 @@ class Document(models.Model):
                     )
                 )
 
+    @api.depends("company_id")
+    def _compute_currency_id(self):
+        for doc in self:
+            doc.currency_id = doc.company_id.currency_id or self.env.company.currency_id
+
     def _compute_document_name(self):
         self.ensure_one()
         name = ""
@@ -350,15 +373,8 @@ class Document(models.Model):
         "fiscal_line_ids.amount_tax_not_included",
         "fiscal_line_ids.amount_tax_withholding",
     )
-    def _compute_amount(self):
-        return super()._compute_amount()
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        for values in vals_list:
-            if not values.get("document_date"):
-                values["document_date"] = self._date_server_format()
-        return super().create(vals_list)
+    def _compute_fiscal_amount(self):
+        return super()._compute_fiscal_amount()
 
     def unlink(self):
         forbidden_states_unlink = [
@@ -372,18 +388,13 @@ class Document(models.Model):
             raise ValidationError(
                 _(
                     "You cannot delete fiscal document number %(number)s with "
-                    "the status: %(state)!",
+                    "the status: %(state)s!",
                     number=record.document_number,
                     state=record.state_edoc,
                 )
             )
 
         return super().unlink()
-
-    @api.onchange("company_id")
-    def _onchange_company_id(self):
-        if self.company_id:
-            self.currency_id = self.company_id.currency_id
 
     def _create_return(self):
         return_docs = self.env[self._name]
@@ -426,6 +437,37 @@ class Document(models.Model):
             action["domain"].append(("id", "in", return_docs.ids))
 
         return action
+
+    # the following actions are meant to be implemented in other modules such as
+    # l10n_br_fiscal_edi. They are defined here so they can be overriden in modules
+    # that don't depend on l10n_br_fiscal_edi (such as l10n_br_account).
+    def view_pdf(self):
+        pass
+
+    def view_xml(self):
+        pass
+
+    def action_document_confirm(self):
+        pass
+
+    def action_document_send(self):
+        pass
+
+    def action_document_back2draft(self):
+        pass
+
+    def action_document_cancel(self):
+        pass
+
+    def action_document_invalidate(self):
+        pass
+
+    def action_document_correction(self):
+        pass
+
+    def exec_after_SITUACAO_EDOC_DENEGADA(self, old_state, new_state):
+        # see https://github.com/OCA/l10n-brazil/pull/3272
+        pass
 
     def _get_email_template(self, state):
         self.ensure_one()

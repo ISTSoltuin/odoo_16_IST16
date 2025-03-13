@@ -9,6 +9,7 @@ from decorator import decorate
 from erpbrasil.base import misc
 
 from odoo.tests import TransactionCase
+from odoo.tools import config as odooconfig
 
 from odoo.addons.l10n_br_fiscal.models.ibpt import (
     DeOlhoNoImposto,
@@ -24,8 +25,7 @@ def _not_every_day_test(method, self, modulo=7, remaining=0):
         return method(self)
     else:
         return lambda: _logger.info(
-            "Skipping test today because datetime.now().day %% %s != %s"
-            % (modulo, remaining)
+            f"Skipping test today because datetime.now().day % {modulo} != {remaining}"
         )
 
 
@@ -109,6 +109,10 @@ class TestIbpt(TransactionCase):
                 company.ibpt_token,
                 misc.punctuation_rm(company.cnpj_cpf),
                 company.state_id.code,
+                odooconfig.get("ibpt_request_timeout")
+                or cls.env["ir.config_parameter"]
+                .sudo()
+                .get_param("ibpt_request_timeout"),
             )
             if ncm_nbs._name == "l10n_br_fiscal.ncm":
                 result = bool(get_ibpt_product(config, ncm_nbs.code_unmasked))

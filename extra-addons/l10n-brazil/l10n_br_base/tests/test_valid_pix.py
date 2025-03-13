@@ -12,10 +12,11 @@ from odoo.tools import mute_logger
 class ValidCreatePIXTest(TransactionCase):
     """Test if ValidationError is raised well during create({})"""
 
-    def setUp(self):
-        super().setUp()
-        self.res_partner_pix_model = self.env["res.partner.pix"]
-        self.partner_id = self.env.ref("l10n_br_base.res_partner_amd")
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.res_partner_pix_model = cls.env["res.partner.pix"]
+        cls.partner_id = cls.env.ref("l10n_br_base.res_partner_amd")
 
     def test_invalid_pix_cnpj_too_big(self):
         pix_vals = {
