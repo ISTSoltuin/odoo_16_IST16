@@ -11,7 +11,8 @@
             "program": "${workspaceFolder}/odoo-bin",
             // "python": "${workspaceFolder}/.venv/bin/python3",
             "args": [
-                "-c", "${workspaceFolder}/odoo4devs.conf"
+                "-c", "${workspaceFolder}/odoo4devs.conf",
+                // "-u", "all"
             ],
            
             "console": "integratedTerminal",

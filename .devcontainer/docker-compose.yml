@@ -15,12 +15,12 @@ services:
       dockerfile: Dockerfile-dev
     volumes:
       - odoocast-16-filestore:/var/lib/odoo
-      - ../.devcontainer://usr/lib/python3/dist-packages/odoo/.devcontainer
-      - ../.vscode://usr/lib/python3/dist-packages/odoo/.vscode
-      - ../odoo://usr/lib/python3/dist-packages/odoo
-      - ../data-dir://usr/lib/python3/dist-packages/odoo/data-dir
-      - ../extra-addons://usr/lib/python3/dist-packages/odoo/extra-addons
-      - ../odoo4devs.conf://usr/lib/python3/dist-packages/odoo/odoo4devs.conf
+      - ../.devcontainer:/usr/lib/python3/dist-packages/odoo/.devcontainer
+      - ../.vscode:/usr/lib/python3/dist-packages/odoo/.vscode
+      - ../odoo:/usr/lib/python3/dist-packages/odoo
+      - ../data-dir:/usr/lib/python3/dist-packages/odoo/data-dir
+      - ../extra-addons:/usr/lib/python3/dist-packages/odoo/extra-addons
+      - ../odoo4devs.conf:/usr/lib/python3/dist-packages/odoo/odoo4devs.conf
     networks:
       - odoocast-16-net
     depends_on:
