@@ -8,7 +8,7 @@ sentry_sdk<=1.9.0
 pyrfc6266
 bokeh==3.1.1
 plotly==5.13.1
-lxml
+lxml[html_clean]
 xlrd
 qifparse
 xlsxwriter
