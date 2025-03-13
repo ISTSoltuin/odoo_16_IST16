@@ -12,18 +12,29 @@ class PartyMixin(models.AbstractModel):
     _name = "l10n_br_base.party.mixin"
     _description = "Brazilian partner and company data mixin"
 
+    cnpj_cpf_stripped = fields.Char(
+        string="CNPJ/CPF Stripped",
+        help="CNPJ/CPF without special characters",
+        compute="_compute_cnpj_cpf_stripped",
+        store=True,
+        index=True,
+    )
+
     cnpj_cpf = fields.Char(
         string="CNPJ/CPF",
         size=18,
+        unaccent=False,
     )
 
     inscr_est = fields.Char(
         string="State Tax Number",
         size=17,
+        unaccent=False,
     )
 
     rg = fields.Char(
         string="RG",
+        unaccent=False,
     )
 
     state_tax_number_ids = fields.One2many(
@@ -35,10 +46,12 @@ class PartyMixin(models.AbstractModel):
     inscr_mun = fields.Char(
         string="Municipal Tax Number",
         size=18,
+        unaccent=False,
     )
 
     suframa = fields.Char(
         size=18,
+        unaccent=False,
     )
 
     legal_name = fields.Char(
@@ -60,6 +73,16 @@ class PartyMixin(models.AbstractModel):
     district = fields.Char(
         size=32,
     )
+
+    @api.depends("cnpj_cpf")
+    def _compute_cnpj_cpf_stripped(self):
+        for record in self:
+            if record.cnpj_cpf:
+                record.cnpj_cpf_stripped = "".join(
+                    char for char in record.cnpj_cpf if char.isalnum()
+                )
+            else:
+                record.cnpj_cpf_stripped = False
 
     @api.onchange("cnpj_cpf")
     def _onchange_cnpj_cpf(self):

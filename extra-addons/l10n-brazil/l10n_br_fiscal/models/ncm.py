@@ -16,9 +16,9 @@ class Ncm(models.Model):
     ]
     _description = "NCM"
 
-    code = fields.Char(size=10)
+    code = fields.Char(size=10, unaccent=False)
 
-    code_unmasked = fields.Char(size=8)
+    code_unmasked = fields.Char(size=8, unaccent=False)
 
     exception = fields.Char(size=2)
 
@@ -49,6 +49,33 @@ class Ncm(models.Model):
         column2="tax_definition_id",
         readonly=True,
         string="Tax Definition",
+    )
+
+    cest_ids = fields.Many2many(
+        comodel_name="l10n_br_fiscal.cest",
+        relation="fiscal_cest_ncm_rel",
+        column1="ncm_id",
+        column2="cest_id",
+        readonly=True,
+        string="CESTs",
+    )
+
+    nbm_ids = fields.Many2many(
+        comodel_name="l10n_br_fiscal.nbm",
+        relation="fiscal_nbm_ncm_rel",
+        column1="ncm_id",
+        column2="nbm_id",
+        readonly=True,
+        string="NBMs",
+    )
+
+    piscofins_ids = fields.Many2many(
+        comodel_name="l10n_br_fiscal.tax.pis.cofins",
+        relation="fiscal_pis_cofins_ncm_rel",
+        column1="ncm_id",
+        column2="piscofins_id",
+        readonly=True,
+        string="PIS/COFINS",
     )
 
     _sql_constraints = [

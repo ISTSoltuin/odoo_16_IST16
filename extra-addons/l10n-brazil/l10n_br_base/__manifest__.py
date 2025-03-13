@@ -10,7 +10,7 @@
     "maintainers": ["renatonlima", "rvalyi"],
     "website": "https://github.com/OCA/l10n-brazil",
     "depends": ["base", "base_setup", "base_address_extended"],
-    "version": "16.0.1.3.0",
+    "version": "16.0.1.2.5",
     "data": [
         "security/ir.model.access.csv",
         "data/res.city.csv",
@@ -39,7 +39,6 @@
         "demo/res_partner_pix_demo.xml",
     ],
     "installable": True,
-    "pre_init_hook": "pre_init_hook",
     "development_status": "Mature",
     "external_dependencies": {
         "python": [

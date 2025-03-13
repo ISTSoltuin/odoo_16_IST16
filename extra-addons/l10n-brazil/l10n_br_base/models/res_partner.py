@@ -19,7 +19,7 @@ class Partner(models.Model):
     def _inverse_street_data(self):
         """In Brazil the address format is street_name, street_number
         (comma instead of space)"""
-        br_partner_ids = self.filtered(lambda l: l._is_br_partner())
+        br_partner_ids = self.filtered(lambda line: line._is_br_partner())
         not_br_partner = self - br_partner_ids
         for partner in br_partner_ids:
             street = (
@@ -30,19 +30,19 @@ class Partner(models.Model):
             partner.street = street
         return super(Partner, not_br_partner)._inverse_street_data()
 
-    vat = fields.Char(related="cnpj_cpf")
+    vat = fields.Char(compute="_compute_vat_from_cnpj_cpf", store=True, recursive=True)
 
     is_accountant = fields.Boolean(string="Is accountant?")
 
-    crc_code = fields.Char(string="CRC Code", size=18)
+    crc_code = fields.Char(string="CRC Code", size=18, unaccent=False)
 
     crc_state_id = fields.Many2one(comodel_name="res.country.state", string="CRC State")
 
-    rntrc_code = fields.Char(string="RNTRC Code", size=12)
+    rntrc_code = fields.Char(string="RNTRC Code", size=12, unaccent=False)
 
-    cei_code = fields.Char(string="CEI Code", size=12)
+    cei_code = fields.Char(string="CEI Code", size=12, unaccent=False)
 
-    union_entity_code = fields.Char(string="Union Entity code")
+    union_entity_code = fields.Char(string="Union Entity code", unaccent=False)
 
     pix_key_ids = fields.One2many(
         string="Pix Keys",
@@ -94,7 +94,7 @@ class Partner(models.Model):
                         for partner in record.env["res.partner"].search(domain):
                             if (
                                 partner.inscr_est == record.inscr_est
-                                and not record.inscr_est
+                                and record.inscr_est
                             ):
                                 raise ValidationError(
                                     _(
@@ -111,6 +111,20 @@ class Partner(models.Model):
                         _("There is already a partner record with this CPF/RG!")
                     )
 
+    @api.depends(
+        "cnpj_cpf", "is_company", "parent_id", "parent_id.vat", "commercial_partner_id"
+    )
+    def _compute_vat_from_cnpj_cpf(self):
+        for partner in self:
+            if partner.company_name and partner.vat:
+                continue
+            elif partner.commercial_partner_id.cnpj_cpf:
+                partner.vat = partner.commercial_partner_id.cnpj_cpf
+            elif partner.vat:
+                continue
+            else:
+                partner.vat = False
+
     @api.constrains("cnpj_cpf", "country_id")
     def _check_cnpj_cpf(self):
         for record in self:
@@ -120,7 +134,7 @@ class Partner(models.Model):
                 record.country_id,
             )
 
-    @api.constrains("inscr_est", "state_id")
+    @api.constrains("inscr_est", "state_id", "is_company")
     def _check_ie(self):
         """Checks if company register number in field insc_est is valid,
         this method call others methods because this validation is State wise
@@ -128,7 +142,10 @@ class Partner(models.Model):
         :Return: True or False.
         """
         for record in self:
-            check_ie(record.env, record.inscr_est, record.state_id, record.country_id)
+            if record.is_company:
+                check_ie(
+                    record.env, record.inscr_est, record.state_id, record.country_id
+                )
 
     @api.constrains("state_tax_number_ids")
     def _check_state_tax_number_ids(self):
@@ -182,6 +199,20 @@ class Partner(models.Model):
                 rec.show_l10n_br = False
             else:
                 rec.show_l10n_br = True
+
+    def create_company(self):
+        self.ensure_one()
+        inscr_est = self.inscr_est
+        inscr_mun = self.inscr_mun
+        res = super().create_company()
+        if res:
+            parent = self.parent_id
+            if parent.country_id.code == "BR":
+                parent.legal_name = parent.name
+                parent.cnpj_cpf = parent.vat
+                parent.inscr_est = inscr_est
+                parent.inscr_mun = inscr_mun
+        return res
 
     def _is_br_partner(self):
         """Check if is a Brazilian Partner."""
