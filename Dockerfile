@@ -15,8 +15,9 @@ RUN apt-get update && apt-get install -y \
 COPY ./extra-addons /usr/lib/python3/dist-packages/odoo/extra-addons
 
 WORKDIR /usr/lib/python3/dist-packages/odoo/extra-addons
-RUN pip3 install --upgrade pip wheel setuptools \
-    && pip3 install -r ./requirements.txt
+RUN pip3 install wheel setuptools 
+RUN pip3 install -r ./requirements.txt
+
 
 # Ajustar permissões na pasta do filestore
 RUN chmod -R 777 /var/lib/odoo /usr/lib/python3/dist-packages/odoo
