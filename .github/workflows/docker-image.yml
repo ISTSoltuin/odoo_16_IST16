@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # - name: Build Docker Image Odoo 16.0
+      # - name: Build Docker Image Odoo 16
       #   run: | 
       #     docker-compose -f odoocast/14.0/docker-compose.yml build
       #     docker image ls
