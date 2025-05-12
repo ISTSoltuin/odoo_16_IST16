@@ -22,14 +22,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # - name: Build Docker Image Odoo 14.0.1.0.5
+      # - name: Build Docker Image Odoo 16.0
       #   run: | 
       #     docker-compose -f odoocast/14.0/docker-compose.yml build
       #     docker image ls
-      #     docker tag 140-odoo-app:latest aosdevs/odoocast:14.0.1.0.5
+      #     docker tag 140-odoo-app:latest pliniomarcos88/odoo:16.1
       #     docker push aosdevs/odoocast:14.0.1.0.5
 
       - name: Build Docker Image Odoo 16.0.1.2.0
         run: |
-          docker buildx build --platform linux/amd64 -t aosdevs/odoocast:odoo.debian.16.0.1.2.7.aulao .
-          docker push aosdevs/odoocast:odoo.debian.16.0.1.2.7.aulao
+          docker buildx build --platform linux/amd64 -t pliniomarcos88/odoo:odoo.16.1 .
+          docker push pliniomarcos88/odoo:odoo.16.1
